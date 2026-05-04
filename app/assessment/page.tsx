@@ -225,7 +225,12 @@ export default function AssessmentPage() {
     if (!element) return
 
     try {
-      const canvas = await html2canvas(element, { scale: 2 })
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        logging: false,
+        useCORS: true,
+        allowTaint: true,
+      })
       const imgData = canvas.toDataURL('image/png')
       const pdf = new jsPDF({
         orientation: 'portrait',
@@ -233,13 +238,27 @@ export default function AssessmentPage() {
         format: 'a4',
       })
 
-      const imgWidth = 210
-      const imgHeight = (canvas.height * imgWidth) / canvas.width
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight)
+      const imgWidth = 190
+      const pageHeight = 277
+      let heightLeft = (canvas.height * imgWidth) / canvas.width
+      let position = 10
 
-      pdf.save(`CDSS_Assessment_${patientData.mrn}_${new Date().toISOString().split('T')[0]}.pdf`)
+      pdf.addImage(imgData, 'PNG', 10, position, imgWidth, (canvas.height * imgWidth) / canvas.width)
+
+      heightLeft -= pageHeight - 20
+
+      while (heightLeft > 0) {
+        position = heightLeft - (canvas.height * imgWidth) / canvas.width
+        pdf.addPage()
+        pdf.addImage(imgData, 'PNG', 10, position, imgWidth, (canvas.height * imgWidth) / canvas.width)
+        heightLeft -= pageHeight
+      }
+
+      const fileName = `CDSS_Assessment_${patientData.mrn}_${new Date().toISOString().split('T')[0]}.pdf`
+      pdf.save(fileName)
     } catch (error) {
-      console.error('Error generating PDF:', error)
+      console.error('[v0] Error generating PDF:', error)
+      alert('Error generating PDF. Please try again.')
     }
   }
 
@@ -526,25 +545,38 @@ export default function AssessmentPage() {
             disabled={currentStep === 'patient'}
           >
             <ChevronLeft className="h-4 w-4" />
-            Back
+            Previous
           </Button>
 
           <div className="flex gap-4">
             {currentStep === 'results' && (
-              <Button
-                onClick={downloadReport}
-                variant="outline"
-                className="gap-2"
-              >
-                <Download className="h-4 w-4" />
-                Download Report
-              </Button>
+              <>
+                <Button
+                  onClick={() => {
+                    setCurrentStep('patient')
+                    setPatientData({ name: '', mrn: '', age: '', gender: '', weight: '', medications: '', adverse_reaction: '' })
+                    setNaranjoResponses([])
+                    setAssessmentResult(null)
+                  }}
+                  variant="outline"
+                  className="gap-2"
+                >
+                  Start New Assessment
+                </Button>
+                <Button
+                  onClick={downloadReport}
+                  className="gap-2 bg-blue-600 hover:bg-blue-700"
+                >
+                  <Download className="h-4 w-4" />
+                  Download Report
+                </Button>
+              </>
             )}
             {currentStep !== 'results' && (
               <Button
                 onClick={handleProceed}
                 disabled={!canProceedFromStep()}
-                className="gap-2"
+                className="gap-2 bg-blue-600 hover:bg-blue-700"
               >
                 Next
                 <ChevronRight className="h-4 w-4" />
