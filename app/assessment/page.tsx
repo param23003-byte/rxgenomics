@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -10,11 +10,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Progress } from '@/components/ui/progress'
-import { AlertCircle, Download, ChevronRight, ChevronLeft } from 'lucide-react'
+import { AlertCircle, Download, ChevronRight, ChevronLeft, Save, RotateCcw } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { cn } from '@/lib/utils'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
+import { ClinicalDisclaimer, GeneticTestingDisclaimer } from '@/components/clinical-disclaimer'
+import { checkDrugInteractions } from '@/lib/ddi-database'
+import { calculatePGxRiskScore, generatePGxAlert, type PGxAlert } from '@/lib/pgx-risk-engine'
+import { generateRecommendations } from '@/lib/recommendations-engine'
 
 // Naranjo Scale Questions
 const NARANJO_QUESTIONS = [
@@ -37,13 +41,17 @@ const NARANJO_RESPONSES = [
 ]
 
 interface PatientData {
+  patientId: string
   name: string
   mrn: string
   age: string
   gender: string
   weight: string
+  diagnosis: string
   medications: string
   adverse_reaction: string
+  adr_severity: 'mild' | 'moderate' | 'severe'
+  outcomeType: 'ADR' | 'Drug_Failure' | 'Effective'
 }
 
 interface NaranjoResponse {
@@ -56,13 +64,15 @@ type CausalityGrade = 'Definite' | 'Probable' | 'Possible' | 'Doubtful'
 interface AssessmentResult {
   naranjoScore: number
   causality: CausalityGrade
-  pgxAlerts: Array<{
-    drug: string
-    gene: string
-    phenotype: string
-    recommendation: string
-    severity: 'critical' | 'warning' | 'normal'
-  }>
+  pgxAlerts: PGxAlert[]
+  ddiAlerts: any[]
+  riskScore: any
+  recommendations: any
+}
+
+// Generate unique patient ID
+function generatePatientId(): string {
+  return `PT-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`
 }
 
 function getCausalityGrade(score: number): CausalityGrade {
@@ -79,66 +89,36 @@ function calculateNaranjoScore(responses: NaranjoResponse[]): number {
     
     if (!responseItem) return total
 
-    // Different questions have different scoring rules
     switch (response.questionIndex) {
-      case 0: // Previous reports
-        return total + (response.value === 1 ? 1 : response.value === 0 ? 0 : 0)
-      case 1: // Temporal relation
-        return total + (response.value === 1 ? 2 : response.value === 0 ? -1 : 0)
-      case 2: // Dechallenge
-        return total + (response.value === 1 ? 3 : response.value === 0 ? -1 : 0)
-      case 3: // Rechallenge
-        return total + (response.value === 1 ? 3 : response.value === 0 ? -1 : 0)
-      case 4: // Alternative causes
-        return total + (response.value === 1 ? -3 : response.value === 0 ? 2 : 1)
-      case 5: // Placebo
-        return total + (response.value === 1 ? 1 : response.value === 0 ? 0 : 0)
-      case 6: // Drug levels
-        return total + (response.value === 1 ? 2 : response.value === 0 ? 0 : 0)
-      case 7: // Dose effect
-        return total + (response.value === 1 ? 1 : response.value === 0 ? 0 : 0)
-      case 8: // Previous exposure
-        return total + (response.value === 1 ? 1 : response.value === 0 ? 0 : 0)
-      case 9: // Objective evidence
-        return total + (response.value === 1 ? 2 : response.value === 0 ? 0 : 0)
-      default:
-        return total
+      case 0: return total + (response.value === 1 ? 1 : response.value === 0 ? 0 : 0)
+      case 1: return total + (response.value === 1 ? 2 : response.value === 0 ? -1 : 0)
+      case 2: return total + (response.value === 1 ? 3 : response.value === 0 ? -1 : 0)
+      case 3: return total + (response.value === 1 ? 3 : response.value === 0 ? -1 : 0)
+      case 4: return total + (response.value === 1 ? -3 : response.value === 0 ? 2 : 1)
+      case 5: return total + (response.value === 1 ? 1 : response.value === 0 ? 0 : 0)
+      case 6: return total + (response.value === 1 ? 2 : response.value === 0 ? 0 : 0)
+      case 7: return total + (response.value === 1 ? 1 : response.value === 0 ? 0 : 0)
+      case 8: return total + (response.value === 1 ? 1 : response.value === 0 ? 0 : 0)
+      case 9: return total + (response.value === 1 ? 2 : response.value === 0 ? 0 : 0)
+      default: return total
     }
   }, 0)
 }
 
-function mapPgxRules(medication: string, adverseReaction: string): AssessmentResult['pgxAlerts'] {
+function mapPgxRules(medication: string, adverseReaction: string): PGxAlert[] {
   const lowerMed = medication.toLowerCase()
-  const alerts: AssessmentResult['pgxAlerts'] = []
+  const alerts: PGxAlert[] = []
 
   if (lowerMed.includes('clopidogrel') || lowerMed.includes('plavix')) {
-    alerts.push({
-      drug: 'Clopidogrel',
-      gene: 'CYP2C19',
-      phenotype: 'Possible Poor Metabolizer',
-      recommendation: 'Consider genotyping for CYP2C19. If poor metabolizer, consider prasugrel or ticagrelor.',
-      severity: 'warning'
-    })
+    alerts.push(generatePGxAlert('Clopidogrel', 'CYP2C19', '*2/*2'))
   }
 
   if (lowerMed.includes('warfarin') || lowerMed.includes('coumadin')) {
-    alerts.push({
-      drug: 'Warfarin',
-      gene: 'VKORC1 / CYP2C9',
-      phenotype: 'Variable metabolism',
-      recommendation: 'INR monitoring recommended. Pharmacogenetic testing may guide dosing.',
-      severity: 'normal'
-    })
+    alerts.push(generatePGxAlert('Warfarin', 'VKORC1', '*1/*1'))
   }
 
   if (lowerMed.includes('tacrolimus') || lowerMed.includes('prograf')) {
-    alerts.push({
-      drug: 'Tacrolimus',
-      gene: 'CYP3A5',
-      phenotype: 'CYP3A5 expression variant',
-      recommendation: 'CYP3A5 genotyping recommended for optimal immunosuppression.',
-      severity: 'normal'
-    })
+    alerts.push(generatePGxAlert('Tacrolimus', 'CYP3A5', '*1/*1'))
   }
 
   return alerts
@@ -147,42 +127,32 @@ function mapPgxRules(medication: string, adverseReaction: string): AssessmentRes
 export default function AssessmentPage() {
   const [currentStep, setCurrentStep] = useState<'patient' | 'medication' | 'naranjo' | 'results'>('patient')
   const [patientData, setPatientData] = useState<PatientData>({
+    patientId: generatePatientId(),
     name: '',
     mrn: '',
     age: '',
     gender: '',
     weight: '',
+    diagnosis: '',
     medications: '',
     adverse_reaction: '',
+    adr_severity: 'moderate',
+    outcomeType: 'ADR'
   })
-
   const [naranjoResponses, setNaranjoResponses] = useState<NaranjoResponse[]>([])
   const [assessmentResult, setAssessmentResult] = useState<AssessmentResult | null>(null)
-
-  const handlePatientChange = (field: keyof PatientData, value: string) => {
-    setPatientData(prev => ({ ...prev, [field]: value }))
-  }
-
-  const handleNaranjoResponse = (questionIndex: number, value: number) => {
-    setNaranjoResponses(prev => {
-      const existing = prev.find(r => r.questionIndex === questionIndex)
-      if (existing) {
-        return prev.map(r => r.questionIndex === questionIndex ? { ...r, value } : r)
-      }
-      return [...prev, { questionIndex, value }]
-    })
-  }
+  const [showSimulationMode, setShowSimulationMode] = useState(false)
 
   const canProceedFromStep = (): boolean => {
     switch (currentStep) {
       case 'patient':
-        return patientData.name && patientData.mrn && patientData.age && patientData.gender && patientData.weight
+        return !!(patientData.name && patientData.age && patientData.gender && patientData.diagnosis)
       case 'medication':
-        return patientData.medications && patientData.adverse_reaction
+        return !!(patientData.medications && patientData.adverse_reaction && patientData.adr_severity)
       case 'naranjo':
         return naranjoResponses.length === NARANJO_QUESTIONS.length
       default:
-        return true
+        return false
     }
   }
 
@@ -192,14 +162,37 @@ export default function AssessmentPage() {
     } else if (currentStep === 'medication') {
       setCurrentStep('naranjo')
     } else if (currentStep === 'naranjo') {
-      const score = calculateNaranjoScore(naranjoResponses)
-      const causality = getCausalityGrade(score)
+      // Calculate results
+      const naranjoScore = calculateNaranjoScore(naranjoResponses)
       const pgxAlerts = mapPgxRules(patientData.medications, patientData.adverse_reaction)
+      const drugList = patientData.medications.split(',').map(d => d.trim())
+      const ddiAlerts = checkDrugInteractions(drugList)
       
+      const riskScore = calculatePGxRiskScore(pgxAlerts, patientData.adr_severity, naranjoScore, {
+        age: parseInt(patientData.age),
+        hasRenal: false,
+        hasHepatic: false
+      })
+
+      const recommendations = generateRecommendations(
+        naranjoScore,
+        pgxAlerts.map(a => ({
+          drug: a.drug,
+          severity: a.severity,
+          dosageAdjustment: a.dosageAdjustment,
+          cpicLevel: a.cpicLevel
+        })),
+        patientData.adr_severity,
+        patientData.outcomeType
+      )
+
       setAssessmentResult({
-        naranjoScore: score,
-        causality,
+        naranjoScore,
+        causality: getCausalityGrade(naranjoScore),
         pgxAlerts,
+        ddiAlerts,
+        riskScore,
+        recommendations
       })
       setCurrentStep('results')
     }
@@ -213,11 +206,6 @@ export default function AssessmentPage() {
     } else if (currentStep === 'results') {
       setCurrentStep('naranjo')
     }
-  }
-
-  const getStepProgress = (): number => {
-    const steps = { patient: 25, medication: 50, naranjo: 75, results: 100 }
-    return steps[currentStep]
   }
 
   const downloadReport = async () => {
@@ -244,7 +232,6 @@ export default function AssessmentPage() {
       let position = 10
 
       pdf.addImage(imgData, 'PNG', 10, position, imgWidth, (canvas.height * imgWidth) / canvas.width)
-
       heightLeft -= pageHeight - 20
 
       while (heightLeft > 0) {
@@ -254,7 +241,7 @@ export default function AssessmentPage() {
         heightLeft -= pageHeight
       }
 
-      const fileName = `CDSS_Assessment_${patientData.mrn}_${new Date().toISOString().split('T')[0]}.pdf`
+      const fileName = `CDSS_Assessment_${patientData.mrn || patientData.patientId}_${new Date().toISOString().split('T')[0]}.pdf`
       pdf.save(fileName)
     } catch (error) {
       console.error('[v0] Error generating PDF:', error)
@@ -262,130 +249,219 @@ export default function AssessmentPage() {
     }
   }
 
-  const progressPercent = getStepProgress()
+  const saveCase = () => {
+    const caseData = {
+      patientData,
+      naranjoResponses,
+      assessmentResult,
+      timestamp: new Date().toISOString()
+    }
+    const savedCases = JSON.parse(localStorage.getItem('savedCases') || '[]')
+    savedCases.push(caseData)
+    localStorage.setItem('savedCases', JSON.stringify(savedCases))
+    alert('Case saved successfully!')
+  }
+
+  const resetAssessment = () => {
+    setCurrentStep('patient')
+    setPatientData({
+      patientId: generatePatientId(),
+      name: '',
+      mrn: '',
+      age: '',
+      gender: '',
+      weight: '',
+      diagnosis: '',
+      medications: '',
+      adverse_reaction: '',
+      adr_severity: 'moderate',
+      outcomeType: 'ADR'
+    })
+    setNaranjoResponses([])
+    setAssessmentResult(null)
+  }
+
+  const progressPercentage = ((Object.keys({
+    'patient': currentStep === 'patient' || currentStep === 'medication' || currentStep === 'naranjo' || currentStep === 'results',
+    'medication': currentStep === 'medication' || currentStep === 'naranjo' || currentStep === 'results',
+    'naranjo': currentStep === 'naranjo' || currentStep === 'results',
+    'results': currentStep === 'results'
+  }).filter(k => {
+    const isComplete: { [key: string]: boolean } = {
+      'patient': currentStep !== 'patient',
+      'medication': currentStep === 'medication' || currentStep === 'naranjo' || currentStep === 'results',
+      'naranjo': currentStep === 'naranjo' || currentStep === 'results',
+      'results': currentStep === 'results'
+    }
+    return isComplete[k]
+  }).length) / 4) * 100
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 px-4 py-8">
-      <div className="mx-auto max-w-4xl">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
+      <div className="container max-w-4xl mx-auto py-8 px-4">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-2">
-            Clinical Decision Support System
-          </h1>
-          <p className="text-lg text-slate-600">
-            Adverse Drug Reaction Assessment & Pharmacogenomic Analysis
-          </p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Clinical Assessment</h1>
+          <p className="text-gray-600">Comprehensive ADR & PGx Analysis</p>
+          <p className="text-sm text-blue-600 font-mono mt-2">Case ID: {patientData.patientId}</p>
         </div>
 
-        {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-medium text-slate-700">
-              Step {['patient', 'medication', 'naranjo', 'results'].indexOf(currentStep) + 1} of 4
-            </span>
-            <span className="text-sm font-medium text-slate-500">
-              {progressPercent}%
-            </span>
-          </div>
-          <Progress value={progressPercent} className="h-2" />
-        </div>
+        {/* Clinical Disclaimer */}
+        <ClinicalDisclaimer type="assessment" />
+
+        {/* Progress Indicator */}
+        <Card className="mb-6 border-blue-200">
+          <CardContent className="pt-6">
+            <div className="flex justify-between mb-2">
+              <span className="text-sm font-medium text-gray-700">Progress</span>
+              <span className="text-sm font-medium text-blue-600">{Math.round(progressPercentage)}%</span>
+            </div>
+            <Progress value={progressPercentage} className="h-2" />
+            <div className="flex justify-between mt-4 text-xs text-gray-600">
+              <span className={currentStep === 'patient' ? 'font-semibold text-blue-600' : ''}>Patient Info</span>
+              <span className={currentStep === 'medication' ? 'font-semibold text-blue-600' : ''}>Medication & ADR</span>
+              <span className={currentStep === 'naranjo' ? 'font-semibold text-blue-600' : ''}>Naranjo Scale</span>
+              <span className={currentStep === 'results' ? 'font-semibold text-blue-600' : ''}>Results</span>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Patient Information Step */}
         {currentStep === 'patient' && (
-          <Card className="border-0 shadow-lg mb-8">
+          <Card className="mb-6">
             <CardHeader>
-              <CardTitle className="text-2xl">Patient Information</CardTitle>
-              <CardDescription>Enter basic patient demographics</CardDescription>
+              <CardTitle>Patient Information</CardTitle>
+              <CardDescription>Enter basic patient demographics and clinical diagnosis</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-base font-medium">Patient Name</Label>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="name">Patient Name</Label>
                   <Input
                     id="name"
-                    placeholder="John Doe"
                     value={patientData.name}
-                    onChange={(e) => handlePatientChange('name', e.target.value)}
-                    className="h-11"
+                    onChange={(e) => setPatientData({ ...patientData, name: e.target.value })}
+                    placeholder="Enter patient name"
                   />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="mrn" className="text-base font-medium">Medical Record Number</Label>
+                <div>
+                  <Label htmlFor="mrn">Medical Record Number</Label>
                   <Input
                     id="mrn"
-                    placeholder="12345678"
                     value={patientData.mrn}
-                    onChange={(e) => handlePatientChange('mrn', e.target.value)}
-                    className="h-11"
+                    onChange={(e) => setPatientData({ ...patientData, mrn: e.target.value })}
+                    placeholder="MRN"
                   />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="age" className="text-base font-medium">Age</Label>
+              </div>
+
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="age">Age</Label>
                   <Input
                     id="age"
                     type="number"
-                    placeholder="45"
                     value={patientData.age}
-                    onChange={(e) => handlePatientChange('age', e.target.value)}
-                    className="h-11"
+                    onChange={(e) => setPatientData({ ...patientData, age: e.target.value })}
+                    placeholder="Age"
                   />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="gender" className="text-base font-medium">Gender</Label>
-                  <Select value={patientData.gender} onValueChange={(value) => handlePatientChange('gender', value)}>
-                    <SelectTrigger className="h-11">
-                      <SelectValue placeholder="Select gender" />
+                <div>
+                  <Label htmlFor="gender">Gender</Label>
+                  <Select value={patientData.gender} onValueChange={(value) => setPatientData({ ...patientData, gender: value })}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="M">Male</SelectItem>
-                      <SelectItem value="F">Female</SelectItem>
-                      <SelectItem value="O">Other</SelectItem>
+                      <SelectItem value="male">Male</SelectItem>
+                      <SelectItem value="female">Female</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="weight" className="text-base font-medium">Weight (kg)</Label>
+                <div>
+                  <Label htmlFor="weight">Weight (kg)</Label>
                   <Input
                     id="weight"
                     type="number"
-                    placeholder="70"
                     value={patientData.weight}
-                    onChange={(e) => handlePatientChange('weight', e.target.value)}
-                    className="h-11"
+                    onChange={(e) => setPatientData({ ...patientData, weight: e.target.value })}
+                    placeholder="Weight"
                   />
                 </div>
+              </div>
+
+              <div>
+                <Label htmlFor="diagnosis">Clinical Diagnosis</Label>
+                <Input
+                  id="diagnosis"
+                  value={patientData.diagnosis}
+                  onChange={(e) => setPatientData({ ...patientData, diagnosis: e.target.value })}
+                  placeholder="e.g., Acute MI, Atrial Fibrillation, Post-transplant"
+                />
               </div>
             </CardContent>
           </Card>
         )}
 
-        {/* Medication & Outcome Step */}
+        {/* Medication & Adverse Reaction Step */}
         {currentStep === 'medication' && (
-          <Card className="border-0 shadow-lg mb-8">
+          <Card className="mb-6">
             <CardHeader>
-              <CardTitle className="text-2xl">Medication & Adverse Reaction</CardTitle>
-              <CardDescription>Document the suspected drug and adverse reaction</CardDescription>
+              <CardTitle>Medication & Adverse Reaction</CardTitle>
+              <CardDescription>Enter current medications and suspected adverse reaction</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="medications" className="text-base font-medium">Suspected Medication(s)</Label>
-                <Input
+              <div>
+                <Label htmlFor="medications">Current Medications</Label>
+                <Textarea
                   id="medications"
-                  placeholder="e.g., Clopidogrel, Warfarin"
                   value={patientData.medications}
-                  onChange={(e) => handlePatientChange('medications', e.target.value)}
-                  className="h-11"
+                  onChange={(e) => setPatientData({ ...patientData, medications: e.target.value })}
+                  placeholder="Enter medications separated by commas (e.g., Clopidogrel 75mg daily, Omeprazole 20mg daily)"
+                  rows={3}
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="adverse_reaction" className="text-base font-medium">Adverse Reaction Description</Label>
+
+              <div>
+                <Label htmlFor="reaction">Suspected Adverse Reaction</Label>
                 <Textarea
-                  id="adverse_reaction"
-                  placeholder="Describe the adverse reaction in detail..."
+                  id="reaction"
                   value={patientData.adverse_reaction}
-                  onChange={(e) => handlePatientChange('adverse_reaction', e.target.value)}
-                  className="min-h-32"
+                  onChange={(e) => setPatientData({ ...patientData, adverse_reaction: e.target.value })}
+                  placeholder="Describe the adverse reaction in detail"
+                  rows={3}
                 />
+              </div>
+
+              <div>
+                <Label>ADR Severity</Label>
+                <div className="grid grid-cols-3 gap-4 mt-2">
+                  {(['mild', 'moderate', 'severe'] as const).map((level) => (
+                    <Button
+                      key={level}
+                      variant={patientData.adr_severity === level ? 'default' : 'outline'}
+                      onClick={() => setPatientData({ ...patientData, adr_severity: level })}
+                      className="capitalize"
+                    >
+                      {level}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <Label>Clinical Outcome Type</Label>
+                <Select value={patientData.outcomeType} onValueChange={(value) => setPatientData({ ...patientData, outcomeType: value as any })}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select outcome type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="ADR">Adverse Drug Reaction (ADR)</SelectItem>
+                    <SelectItem value="Drug_Failure">Drug Failure / Lack of Efficacy</SelectItem>
+                    <SelectItem value="Effective">Effective (No ADR)</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </CardContent>
           </Card>
@@ -393,175 +469,231 @@ export default function AssessmentPage() {
 
         {/* Naranjo Scale Step */}
         {currentStep === 'naranjo' && (
-          <div className="space-y-6 mb-8">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">Naranjo Adverse Drug Reaction Probability Scale</h2>
-              <p className="text-slate-600 mb-4">Answer the following questions to calculate causality probability</p>
-            </div>
-
-            {NARANJO_QUESTIONS.map((question, index) => (
-              <Card key={index} className="border-0 shadow-md">
-                <CardContent className="pt-6">
-                  <div className="space-y-4">
-                    <div className="flex items-start justify-between">
-                      <h3 className="font-medium text-slate-900 flex-1 pr-4">
-                        <span className="inline-block bg-blue-100 text-blue-700 rounded-full h-7 w-7 text-center mr-3 font-semibold">
-                          {index + 1}
-                        </span>
-                        {question}
-                      </h3>
+          <Card className="mb-6">
+            <CardHeader>
+              <CardTitle>Naranjo ADR Probability Scale</CardTitle>
+              <CardDescription>Answer each question about the suspected adverse reaction</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {NARANJO_QUESTIONS.map((question, index) => (
+                <div key={index} className="border-b pb-4 last:border-b-0">
+                  <p className="font-medium text-gray-900 mb-3">{index + 1}. {question}</p>
+                  <RadioGroup
+                    value={naranjoResponses.find(r => r.questionIndex === index)?.value.toString() || ''}
+                    onValueChange={(value) => {
+                      const existing = naranjoResponses.find(r => r.questionIndex === index)
+                      if (existing) {
+                        setNaranjoResponses(naranjoResponses.map(r =>
+                          r.questionIndex === index ? { ...r, value: parseInt(value) } : r
+                        ))
+                      } else {
+                        setNaranjoResponses([...naranjoResponses, { questionIndex: index, value: parseInt(value) }])
+                      }
+                    }}
+                  >
+                    <div className="flex gap-6">
+                      {NARANJO_RESPONSES.map((response) => (
+                        <div key={response.value} className="flex items-center space-x-2">
+                          <RadioGroupItem value={response.value.toString()} id={`q${index}_${response.value}`} />
+                          <Label htmlFor={`q${index}_${response.value}`} className="font-normal cursor-pointer">
+                            {response.label}
+                          </Label>
+                        </div>
+                      ))}
                     </div>
-                    <RadioGroup 
-                      value={naranjoResponses.find(r => r.questionIndex === index)?.value?.toString() ?? ''}
-                      onValueChange={(value) => handleNaranjoResponse(index, parseInt(value))}
-                    >
-                      <div className="flex items-center space-x-8">
-                        {NARANJO_RESPONSES.map((response) => (
-                          <div key={response.value} className="flex items-center space-x-2">
-                            <RadioGroupItem value={response.value.toString()} id={`q${index}-${response.value}`} />
-                            <Label htmlFor={`q${index}-${response.value}`} className="font-normal cursor-pointer">
-                              {response.label}
-                            </Label>
-                          </div>
-                        ))}
-                      </div>
-                    </RadioGroup>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </RadioGroup>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
         )}
 
         {/* Results Step */}
         {currentStep === 'results' && assessmentResult && (
-          <div id="report-content" className="space-y-6 mb-8">
-            {/* Naranjo Score Card */}
-            <Card className="border-0 shadow-lg bg-gradient-to-r from-blue-50 to-indigo-50">
-              <CardHeader>
-                <CardTitle className="text-2xl">Naranjo Assessment Results</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <p className="text-sm font-medium text-slate-600">Naranjo Score</p>
-                    <div className="text-5xl font-bold text-blue-600">
-                      {assessmentResult.naranjoScore}
-                    </div>
-                    <p className="text-sm text-slate-500">out of 13 points</p>
-                  </div>
-                  <div className="space-y-3">
-                    <p className="text-sm font-medium text-slate-600">Causality Assessment</p>
-                    <Badge className={cn(
-                      'px-4 py-2 text-lg font-semibold',
-                      assessmentResult.causality === 'Definite' && 'bg-red-100 text-red-800',
-                      assessmentResult.causality === 'Probable' && 'bg-orange-100 text-orange-800',
-                      assessmentResult.causality === 'Possible' && 'bg-yellow-100 text-yellow-800',
-                      assessmentResult.causality === 'Doubtful' && 'bg-gray-100 text-gray-800',
-                    )}>
-                      {assessmentResult.causality}
-                    </Badge>
-                    <p className="text-xs text-slate-500">
-                      {assessmentResult.causality === 'Definite' && '≥9 points: Strong evidence of causality'}
-                      {assessmentResult.causality === 'Probable' && '5-8 points: Good evidence of causality'}
-                      {assessmentResult.causality === 'Possible' && '1-4 points: Weak evidence of causality'}
-                      {assessmentResult.causality === 'Doubtful' && '≤0 points: Little to no evidence of causality'}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* PGx Alerts */}
-            {assessmentResult.pgxAlerts.length > 0 && (
-              <Card className="border-0 shadow-lg">
+          <>
+            <div id="report-content" className="space-y-6">
+              {/* Naranjo Score Card */}
+              <Card className="border-blue-300 bg-blue-50">
                 <CardHeader>
-                  <CardTitle>Pharmacogenomic Alerts</CardTitle>
-                  <CardDescription>Drug-gene interaction findings</CardDescription>
+                  <CardTitle>Naranjo Score Assessment</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  {assessmentResult.pgxAlerts.map((alert, index) => (
-                    <Alert 
-                      key={index}
-                      className={cn(
-                        'border-l-4',
-                        alert.severity === 'critical' && 'border-l-red-500 bg-red-50',
-                        alert.severity === 'warning' && 'border-l-orange-500 bg-orange-50',
-                        alert.severity === 'normal' && 'border-l-blue-500 bg-blue-50',
-                      )}
-                    >
-                      <AlertCircle className={cn(
-                        'h-4 w-4',
-                        alert.severity === 'critical' && 'text-red-600',
-                        alert.severity === 'warning' && 'text-orange-600',
-                        alert.severity === 'normal' && 'text-blue-600',
-                      )} />
-                      <AlertDescription className="ml-2">
-                        <p className="font-semibold text-slate-900 mb-1">{alert.drug} - {alert.gene}</p>
-                        <p className="text-sm text-slate-700 mb-2">Phenotype: {alert.phenotype}</p>
-                        <p className="text-sm text-slate-600">{alert.recommendation}</p>
-                      </AlertDescription>
-                    </Alert>
-                  ))}
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="bg-white p-4 rounded-lg border border-blue-200">
+                      <div className="text-3xl font-bold text-blue-600">{assessmentResult.naranjoScore}</div>
+                      <div className="text-sm text-gray-600">Naranjo Score</div>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg border border-blue-200">
+                      <div className="text-xl font-bold text-gray-900">{assessmentResult.causality}</div>
+                      <div className="text-sm text-gray-600">Causality Grade</div>
+                    </div>
+                    <div className="bg-white p-4 rounded-lg border border-blue-200">
+                      <div className="text-xl font-bold text-blue-600">{assessmentResult.riskScore.riskLevel}</div>
+                      <div className="text-sm text-gray-600">Risk Level</div>
+                    </div>
+                  </div>
+                  <div className="text-sm text-gray-700">
+                    <p><strong>Interpretation:</strong> {assessmentResult.causality === 'Definite' && 'The ADR is definitively caused by the drug.'}</p>
+                    {assessmentResult.causality === 'Probable' && 'The ADR is probably caused by the drug.'}
+                    {assessmentResult.causality === 'Possible' && 'The ADR is possibly caused by the drug.'}
+                    {assessmentResult.causality === 'Doubtful' && 'The ADR causality is doubtful.'}
+                  </div>
                 </CardContent>
               </Card>
-            )}
 
-            {/* Patient Summary */}
-            <Card className="border-0 shadow-lg">
-              <CardHeader>
-                <CardTitle>Assessment Summary</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-sm font-medium text-slate-600">Patient Name</p>
-                    <p className="text-lg font-semibold text-slate-900">{patientData.name}</p>
+              {/* PGx Risk Score */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Pharmacogenomic Risk Score</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="bg-gradient-to-r from-blue-50 to-white p-6 rounded-lg border border-blue-200">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-4xl font-bold text-blue-600">{assessmentResult.riskScore.score}</div>
+                        <div className="text-sm text-gray-600">Risk Score (0-100)</div>
+                      </div>
+                      <div className="text-right">
+                        <Badge className={`text-lg py-2 px-4 ${
+                          assessmentResult.riskScore.riskLevel === 'High' ? 'bg-red-600' :
+                          assessmentResult.riskScore.riskLevel === 'Moderate' ? 'bg-yellow-600' :
+                          'bg-green-600'
+                        }`}>
+                          {assessmentResult.riskScore.riskLevel}
+                        </Badge>
+                        <p className="text-sm text-gray-600 mt-2">CPIC Level: {assessmentResult.riskScore.cpicLevel}</p>
+                      </div>
+                    </div>
+                    <Progress value={assessmentResult.riskScore.score} className="mt-4 h-3" />
                   </div>
-                  <div>
-                    <p className="text-sm font-medium text-slate-600">MRN</p>
-                    <p className="text-lg font-semibold text-slate-900">{patientData.mrn}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-slate-600">Suspected Medication</p>
-                    <p className="text-lg font-semibold text-slate-900">{patientData.medications}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-slate-600">Adverse Reaction</p>
-                    <p className="text-lg font-semibold text-slate-900">{patientData.adverse_reaction}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
 
-        {/* Navigation Buttons */}
-        <div className="flex gap-4 justify-between">
-          <Button
-            onClick={handleBack}
-            variant="outline"
-            className="gap-2"
-            disabled={currentStep === 'patient'}
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Previous
-          </Button>
+                  {assessmentResult.riskScore.factors.length > 0 && (
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-2">Risk Factors:</p>
+                      <ul className="space-y-1">
+                        {assessmentResult.riskScore.factors.map((factor, i) => (
+                          <li key={i} className="text-sm text-gray-700 flex items-start">
+                            <span className="text-blue-600 mr-2">•</span>
+                            {factor}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
 
-          <div className="flex gap-4">
-            {currentStep === 'results' && (
-              <>
+              {/* PGx Alerts */}
+              {assessmentResult.pgxAlerts.length > 0 && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Pharmacogenomic Alerts</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {assessmentResult.pgxAlerts.map((alert, i) => (
+                      <div key={i} className="border-l-4 border-blue-600 pl-4 py-2">
+                        <div className="flex items-center justify-between mb-2">
+                          <p className="font-semibold text-gray-900">{alert.drug} - {alert.gene}</p>
+                          <Badge variant={alert.severity === 'critical' ? 'destructive' : 'secondary'}>
+                            {alert.severity}
+                          </Badge>
+                        </div>
+                        <p className="text-sm text-gray-600">Phenotype: {alert.metabolizerStatus}</p>
+                        <p className="text-sm text-gray-700 mt-2"><strong>Recommendation:</strong> {alert.dosageAdjustment}</p>
+                        <p className="text-sm text-gray-600 mt-1">CPIC Level: {alert.cpicLevel}</p>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* DDI Alerts */}
+              {assessmentResult.ddiAlerts.length > 0 && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Drug-Drug Interactions</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {assessmentResult.ddiAlerts.map((ddi, i) => (
+                      <div key={i} className="border-l-4 border-yellow-600 pl-4 py-2">
+                        <p className="font-semibold text-gray-900">{ddi.drugA} + {ddi.drugB}</p>
+                        <p className="text-sm text-gray-700 mt-1">{ddi.mechanism}</p>
+                        <p className="text-sm text-gray-600 mt-1"><strong>Management:</strong> {ddi.management}</p>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Clinical Recommendations */}
+              <Card className="border-green-300 bg-green-50">
+                <CardHeader>
+                  <CardTitle>Clinical Recommendations</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-2">Primary Recommendation:</p>
+                    <div className="bg-white p-4 rounded-lg border border-green-200">
+                      <div className="flex items-start gap-3">
+                        <Badge className={`${
+                          assessmentResult.recommendations.primaryRecommendation.type === 'Discontinue' ? 'bg-red-600' :
+                          assessmentResult.recommendations.primaryRecommendation.type === 'Alternative' ? 'bg-orange-600' :
+                          assessmentResult.recommendations.primaryRecommendation.type === 'Adjust' ? 'bg-yellow-600' :
+                          'bg-green-600'
+                        } text-white`}>
+                          {assessmentResult.recommendations.primaryRecommendation.type}
+                        </Badge>
+                        <div className="flex-1">
+                          <p className="font-semibold text-gray-900">{assessmentResult.recommendations.primaryRecommendation.title}</p>
+                          <p className="text-sm text-gray-700 mt-2">{assessmentResult.recommendations.primaryRecommendation.description}</p>
+                          {assessmentResult.recommendations.primaryRecommendation.dosageAdjustment && (
+                            <p className="text-sm text-blue-600 font-medium mt-2">
+                              {assessmentResult.recommendations.primaryRecommendation.dosageAdjustment}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {assessmentResult.recommendations.primaryRecommendation.monitoringRequirements && (
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-2">Monitoring Requirements:</p>
+                      <ul className="space-y-1">
+                        {assessmentResult.recommendations.primaryRecommendation.monitoringRequirements.map((req, i) => (
+                          <li key={i} className="text-sm text-gray-700 flex items-start">
+                            <span className="text-green-600 mr-2">✓</span>
+                            {req}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+
+              <GeneticTestingDisclaimer />
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-4 justify-between mt-8">
+              <Button
+                onClick={handleBack}
+                variant="outline"
+                className="gap-2"
+              >
+                <ChevronLeft className="h-4 w-4" />
+                Previous
+              </Button>
+
+              <div className="flex gap-4">
                 <Button
-                  onClick={() => {
-                    setCurrentStep('patient')
-                    setPatientData({ name: '', mrn: '', age: '', gender: '', weight: '', medications: '', adverse_reaction: '' })
-                    setNaranjoResponses([])
-                    setAssessmentResult(null)
-                  }}
+                  onClick={saveCase}
                   variant="outline"
                   className="gap-2"
                 >
-                  Start New Assessment
+                  <Save className="h-4 w-4" />
+                  Save Case
                 </Button>
                 <Button
                   onClick={downloadReport}
@@ -570,20 +702,42 @@ export default function AssessmentPage() {
                   <Download className="h-4 w-4" />
                   Download Report
                 </Button>
-              </>
-            )}
-            {currentStep !== 'results' && (
-              <Button
-                onClick={handleProceed}
-                disabled={!canProceedFromStep()}
-                className="gap-2 bg-blue-600 hover:bg-blue-700"
-              >
-                Next
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            )}
+                <Button
+                  onClick={resetAssessment}
+                  variant="outline"
+                  className="gap-2"
+                >
+                  <RotateCcw className="h-4 w-4" />
+                  New Assessment
+                </Button>
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* Navigation Buttons */}
+        {currentStep !== 'results' && (
+          <div className="flex gap-4 justify-between mt-8">
+            <Button
+              onClick={handleBack}
+              variant="outline"
+              className="gap-2"
+              disabled={currentStep === 'patient'}
+            >
+              <ChevronLeft className="h-4 w-4" />
+              Previous
+            </Button>
+
+            <Button
+              onClick={handleProceed}
+              disabled={!canProceedFromStep()}
+              className="gap-2 bg-blue-600 hover:bg-blue-700"
+            >
+              Next
+              <ChevronRight className="h-4 w-4" />
+            </Button>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

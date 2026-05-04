@@ -1,6 +1,6 @@
 "use client"
 
-import { Search, FlaskConical, FileText, Users, Activity, Settings, Dna, ClipboardCheck } from "lucide-react"
+import { Search, FlaskConical, FileText, Users, Activity, Settings, Dna, ClipboardCheck, BarChart3, Archive } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -47,6 +47,16 @@ const mainNavItems = [
 ]
 
 const analyticsItems = [
+  {
+    title: "Dashboard",
+    url: "/dashboard",
+    icon: BarChart3,
+  },
+  {
+    title: "Saved Cases",
+    url: "/saved-cases",
+    icon: Archive,
+  },
   {
     title: "Patient Overview",
     url: "/patients",
