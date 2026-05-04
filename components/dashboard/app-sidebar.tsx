@@ -30,6 +30,11 @@ const mainNavItems = [
     icon: ClipboardCheck,
   },
   {
+    title: "Clinical Assessment",
+    url: "/assessment",
+    icon: FlaskConical,
+  },
+  {
     title: "Drug-Gene Interaction",
     url: "/interactions",
     icon: FlaskConical,
