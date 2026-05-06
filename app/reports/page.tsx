@@ -7,9 +7,10 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { AlertCircle, Download, Eye, Trash2, FileText, Calendar, User } from 'lucide-react'
+import { AlertCircle, Download, Eye, Trash2, FileText, Calendar, User, Home } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { cn } from '@/lib/utils'
+import { useRouter } from 'next/navigation'
 
 interface ClinicalReport {
   id: string
@@ -88,6 +89,7 @@ export default function ClinicalReportsPage() {
   const [filterType, setFilterType] = useState<'all' | 'Naranjo' | 'PGx' | 'Complete'>('all')
   const [selectedReport, setSelectedReport] = useState<ClinicalReport | null>(null)
   const [reports, setReports] = useState<ClinicalReport[]>(MOCK_REPORTS)
+  const router = useRouter()
 
   const filteredReports = reports.filter(report => {
     const matchesSearch = 
@@ -170,13 +172,23 @@ export default function ClinicalReportsPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 px-4 py-8">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-2">
-            Clinical Reports
-          </h1>
-          <p className="text-lg text-slate-600">
-            View, manage, and download clinical assessment reports
-          </p>
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-2">
+              Clinical Reports
+            </h1>
+            <p className="text-lg text-slate-600">
+              View, manage, and download clinical assessment reports
+            </p>
+          </div>
+          <Button
+            onClick={() => router.push('/dashboard')}
+            variant="outline"
+            className="gap-2 h-fit"
+          >
+            <Home className="h-4 w-4" />
+            Dashboard
+          </Button>
         </div>
 
         {/* Filters */}

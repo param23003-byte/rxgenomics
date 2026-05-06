@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { AlertCircle, Trash2, FileText, Download } from 'lucide-react'
+import { AlertCircle, Trash2, FileText, Download, Home } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
+import { useRouter } from 'next/navigation'
 
 interface SavedCase {
   patientData: any
@@ -19,6 +20,7 @@ interface SavedCase {
 export default function SavedCasesPage() {
   const [cases, setCases] = useState<SavedCase[]>([])
   const [filter, setFilter] = useState<'all' | 'high' | 'moderate' | 'low'>('all')
+  const router = useRouter()
 
   useEffect(() => {
     const savedCases = JSON.parse(localStorage.getItem('savedCases') || '[]')
@@ -101,9 +103,19 @@ export default function SavedCasesPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <div className="container max-w-6xl mx-auto py-8 px-4">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Saved Cases</h1>
-          <p className="text-gray-600">Manage and review previously completed assessments</p>
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Saved Cases</h1>
+            <p className="text-gray-600">Manage and review previously completed assessments</p>
+          </div>
+          <Button
+            onClick={() => router.push('/dashboard')}
+            variant="outline"
+            className="gap-2 h-fit"
+          >
+            <Home className="h-4 w-4" />
+            Dashboard
+          </Button>
         </div>
 
         {/* No Cases Message */}

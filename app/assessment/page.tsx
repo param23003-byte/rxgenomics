@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Progress } from '@/components/ui/progress'
-import { AlertCircle, Download, ChevronRight, ChevronLeft, Save, RotateCcw } from 'lucide-react'
+import { AlertCircle, Download, ChevronRight, ChevronLeft, Save, RotateCcw, Home } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { cn } from '@/lib/utils'
 import jsPDF from 'jspdf'
@@ -19,6 +19,8 @@ import { ClinicalDisclaimer, GeneticTestingDisclaimer } from '@/components/clini
 import { checkDrugInteractions } from '@/lib/ddi-database'
 import { calculatePGxRiskScore, generatePGxAlert, type PGxAlert } from '@/lib/pgx-risk-engine'
 import { generateRecommendations } from '@/lib/recommendations-engine'
+import { generatePhenotypePredictions, type PhenotypePrediction } from '@/lib/phenotype-prediction'
+import { useRouter } from 'next/navigation'
 
 // Naranjo Scale Questions
 const NARANJO_QUESTIONS = [
@@ -65,6 +67,7 @@ interface AssessmentResult {
   naranjoScore: number
   causality: CausalityGrade
   pgxAlerts: PGxAlert[]
+  phenotypePredictions: PhenotypePrediction[]
   ddiAlerts: any[]
   riskScore: any
   recommendations: any
@@ -142,6 +145,7 @@ export default function AssessmentPage() {
   const [naranjoResponses, setNaranjoResponses] = useState<NaranjoResponse[]>([])
   const [assessmentResult, setAssessmentResult] = useState<AssessmentResult | null>(null)
   const [showSimulationMode, setShowSimulationMode] = useState(false)
+  const router = useRouter()
 
   const canProceedFromStep = (): boolean => {
     switch (currentStep) {
@@ -186,10 +190,16 @@ export default function AssessmentPage() {
         patientData.outcomeType
       )
 
+      const phenotypePredictions = generatePhenotypePredictions(
+        patientData.medications,
+        patientData.outcomeType
+      )
+
       setAssessmentResult({
         naranjoScore,
         causality: getCausalityGrade(naranjoScore),
         pgxAlerts,
+        phenotypePredictions,
         ddiAlerts,
         riskScore,
         recommendations
@@ -299,11 +309,21 @@ export default function AssessmentPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white">
       <div className="container max-w-4xl mx-auto py-8 px-4">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Clinical Assessment</h1>
-          <p className="text-gray-600">Comprehensive ADR & PGx Analysis</p>
-          <p className="text-sm text-blue-600 font-mono mt-2">Case ID: {patientData.patientId}</p>
+      {/* Header */}
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Clinical Assessment</h1>
+            <p className="text-gray-600">Comprehensive ADR & PGx Analysis</p>
+            <p className="text-sm text-blue-600 font-mono mt-2">Case ID: {patientData.patientId}</p>
+          </div>
+          <Button
+            onClick={() => router.push('/dashboard')}
+            variant="outline"
+            className="gap-2 h-fit"
+          >
+            <Home className="h-4 w-4" />
+            Dashboard
+          </Button>
         </div>
 
         {/* Clinical Disclaimer */}
@@ -582,6 +602,37 @@ export default function AssessmentPage() {
                   )}
                 </CardContent>
               </Card>
+
+              {/* Predicted PGx Phenotype */}
+              {assessmentResult.phenotypePredictions.length > 0 && (
+                <Card className="border-purple-300 bg-purple-50">
+                  <CardHeader>
+                    <CardTitle>Predicted Pharmacogenomic Phenotype</CardTitle>
+                    <CardDescription className="text-xs text-purple-700">(Predicted – Not Confirmed)</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <Alert className="border-purple-200 bg-white">
+                      <AlertCircle className="h-4 w-4 text-purple-600" />
+                      <AlertDescription className="text-sm text-gray-700">
+                        <strong>Note:</strong> The observed clinical response may be associated with altered enzyme activity influenced by genetic variability.
+                      </AlertDescription>
+                    </Alert>
+                    {assessmentResult.phenotypePredictions.map((pred, i) => (
+                      <div key={i} className="border-l-4 border-purple-600 pl-4 py-3 bg-white rounded">
+                        <div className="flex items-start justify-between mb-2">
+                          <div>
+                            <p className="font-semibold text-gray-900">Gene: {pred.gene}</p>
+                            <Badge className="mt-2 bg-purple-600">{pred.predictedPhenotype}</Badge>
+                          </div>
+                          <Badge variant="outline" className="text-purple-700 border-purple-300">CPIC Level {pred.cpicLevel}</Badge>
+                        </div>
+                        <p className="text-sm text-gray-700 mt-3"><strong>Clinical Response:</strong> {pred.clinicalResponse.replace('_', ' ')}</p>
+                        <p className="text-sm text-gray-700 mt-2"><strong>Mechanism:</strong> {pred.mechanismExplanation}</p>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              )}
 
               {/* PGx Alerts */}
               {assessmentResult.pgxAlerts.length > 0 && (

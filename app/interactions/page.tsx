@@ -7,9 +7,10 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { AlertCircle, Search, Filter, Zap } from 'lucide-react'
+import { AlertCircle, Search, Filter, Zap, Home } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { cn } from '@/lib/utils'
+import { useRouter } from 'next/navigation'
 
 interface DrugGeneInteraction {
   drug: string
@@ -118,6 +119,7 @@ export default function DrugGeneInteractionPage() {
   const [searchDrug, setSearchDrug] = useState('')
   const [filterSeverity, setFilterSeverity] = useState<'all' | 'critical' | 'warning' | 'normal'>('all')
   const [selectedInteraction, setSelectedInteraction] = useState<DrugGeneInteraction | null>(null)
+  const router = useRouter()
 
   const filteredInteractions = DRUG_GENE_DATABASE.filter(interaction => {
     const matchesDrug = interaction.drug.toLowerCase().includes(searchDrug.toLowerCase())
@@ -129,13 +131,23 @@ export default function DrugGeneInteractionPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 px-4 py-8">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-2">
-            Drug-Gene Interaction Database
-          </h1>
-          <p className="text-lg text-slate-600">
-            Comprehensive pharmacogenomic interaction reference with clinical recommendations
-          </p>
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-2">
+              Drug-Gene Interaction Database
+            </h1>
+            <p className="text-lg text-slate-600">
+              Comprehensive pharmacogenomic interaction reference with clinical recommendations
+            </p>
+          </div>
+          <Button
+            onClick={() => router.push('/dashboard')}
+            variant="outline"
+            className="gap-2 h-fit"
+          >
+            <Home className="h-4 w-4" />
+            Dashboard
+          </Button>
         </div>
 
         {/* Filters */}

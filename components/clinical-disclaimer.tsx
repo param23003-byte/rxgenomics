@@ -29,15 +29,18 @@ export function ClinicalDisclaimer({ type = 'general', compact = false }: Clinic
 
 export function GeneticTestingDisclaimer() {
   return (
-    <Alert className="border-blue-200 bg-blue-50 mb-4">
-      <AlertCircle className="h-4 w-4 text-blue-600" />
-      <AlertDescription className="text-blue-900 text-sm">
-        <div className="font-semibold mb-1">Genetic Testing Notice</div>
-        <div>
-          Pharmacogenomic recommendations in this system are based on established CPIC guidelines and represent
-          consensus on drug-gene interactions. However, predictive insights should be confirmed through clinical-grade
-          genetic testing before implementing major therapy changes. Consider ordering appropriate genetic testing panels
-          when indicated by clinical findings.
+    <Alert className="border-purple-300 bg-purple-50 mb-4">
+      <AlertCircle className="h-4 w-4 text-purple-600" />
+      <AlertDescription className="text-purple-900 text-sm">
+        <div className="font-semibold mb-2">⚠️ Predicted Pharmacogenomic Insights</div>
+        <div className="mb-2">
+          <strong>This system provides predicted pharmacogenomic insights based on clinical response and established guidelines. It does NOT confirm genetic mutations. Genetic testing is required for definitive results.</strong>
+        </div>
+        <div className="space-y-2 text-xs">
+          <p>• Phenotype predictions are based on observed clinical outcomes and drug-gene relationships, not confirmed genotyping</p>
+          <p>• Laboratory-based genetic testing is necessary to confirm any predicted metabolizer status</p>
+          <p>• Use this system for clinical decision support in conjunction with genetic testing recommendations, not as a replacement for genetic testing</p>
+          <p>• All therapeutic decisions should be made by qualified healthcare professionals with appropriate clinical context</p>
         </div>
       </AlertDescription>
     </Alert>
