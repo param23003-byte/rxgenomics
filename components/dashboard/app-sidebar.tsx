@@ -30,11 +30,6 @@ const mainNavItems = [
     icon: ClipboardCheck,
   },
   {
-    title: "PGX Risk Assessment",
-    url: "/pgx-check",
-    icon: Dna,
-  },
-  {
     title: "Drug-Gene Interaction",
     url: "/interactions",
     icon: FlaskConical,
