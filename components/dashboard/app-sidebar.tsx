@@ -1,11 +1,14 @@
 "use client";
 
-import { FlaskConical, Dna } from "lucide-react";
+import { FlaskConical, Dna, ScanSearch } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 
-const navItems = [{ title: "Drug-Gene Interaction", url: "/interactions", icon: FlaskConical }];
+const navItems = [
+  { title: "Drug-Gene Interaction", url: "/interactions", icon: FlaskConical },
+  { title: "Full patient check", url: "/panel", icon: ScanSearch },
+];
 
 export function AppSidebar() {
   const pathname = usePathname();
