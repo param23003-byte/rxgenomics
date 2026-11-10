@@ -21,10 +21,14 @@ const isHighRisk = (priority: string | null) =>
 
 /**
  * Alert tier rule (documented for the expert panel):
- *   critical - a supplied gene has a high-risk CPIC phenotype AND the recommendation is "Strong"
- *   warning  - a supplied gene has a high-risk CPIC phenotype (Moderate / Optional recommendation)
+ *   critical - a relevant gene has a high-risk CPIC phenotype AND the recommendation is "Strong"
+ *   warning  - a relevant gene has a high-risk CPIC phenotype (Moderate / Optional recommendation)
  *   normal   - phenotypes are routine / low risk and a recommendation was found
  *   info     - no recommendation could be matched, or the phenotype is indeterminate
+ *
+ * `genotypes` must contain only the genes this drug is keyed on. Passing every
+ * genotype a patient has would let one high-risk gene raise a critical alert on
+ * every unrelated drug, which is how an alerting system becomes noise.
  */
 export function alertTier(genotypes: GenotypeResult[], primary: Recommendation[]): AlertTier {
   if (!primary.length || genotypes.some((g) => g.status !== "ok")) return "info";
@@ -87,6 +91,11 @@ export function checkDrug(
       } not tested.`,
     );
   }
-  result.tier = alertTier(genotypes, result.primary);
+  // Scored on this drug's own genes only: a whole-panel check supplies many
+  // genotypes, and an unrelated gene must not drive this drug's alert.
+  result.tier = alertTier(
+    genotypes.filter((g) => drug.genes.includes(g.gene)),
+    result.primary,
+  );
   return result;
 }

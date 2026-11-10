@@ -1,0 +1,41 @@
+﻿STEP 4 - WHAT THE GENETIC ANALYSIS FOUND
+================================================================================
+
+THE HEADLINE
+
+  10,794 results, covering 514 donors across 21 pharmacogenes.
+
+HOW WE KNOW THE ANALYSIS IS CORRECT
+
+  The strongest evidence is that the frequencies we observed match frequencies
+  already published for South Asian populations. If the analysis were wrong, the
+  numbers would not line up.
+
+      CYP2C19 poor metabolizers    we found 16.3%   published: about 13-16%
+      CYP3A5 poor/intermediate     we found 88%     the expected majority state
+      NUDT15 vs TPMT               13.6% vs 3.3%    the known Asian pattern
+      G6PD deficient donors        all male         G6PD is X-linked, as expected
+
+  The G6PD finding is worth noting: the variants detected were
+  'Kalyan-Kerala/Jamnagar/Rohini', the predominant G6PD deficiency variant in
+  India, and 'Gond', named for the central Indian tribal population. These are
+  Indian variants, found in Indian donors.
+
+FILES IN THIS FOLDER
+
+  RxGenomics_PGx_TestCases_complete14.xlsx
+      The main results workbook. Start with the 'Test Case Inventory' sheet.
+
+  complete14\strict\
+      The primary results. 'Strict' means that where data was missing, we
+      recorded 'not determined' rather than assuming a normal result.
+
+  complete14\absref\
+      A second analysis run under the opposite assumption, kept for comparison.
+      DO NOT USE THESE AS RESULTS. They are included only to show, with numbers,
+      why the strict approach was chosen. See 'Decisions taken' in the narrative
+      document.
+
+  complete14\*\per_sample_reports\
+      The individual report for each of the 514 donors, if anyone wishes to
+      inspect a single case.
