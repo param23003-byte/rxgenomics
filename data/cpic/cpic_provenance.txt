@@ -1,0 +1,30 @@
+CPIC API retrieval: 2026-10-05 17:32 UTC
+Endpoint: https://api.cpicpgx.org/v1
+
+pair_view?cpiclevel=eq.A  ->  96 pairs
+distinct genes: 21
+recommendation (for 78 Level A drugs)  ->  1048 rows
+recommendation rows written (one per gene in lookupkey): 1656
+
+Level A drugs per gene:
+  ABCG2        1  rosuvastatin
+  CACNA1S      7  desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine
+  CFTR         1  ivacaftor
+  CYP2B6       1  efavirenz
+  CYP2C19      9  amitriptyline, citalopram, clopidogrel, escitalopram, lansoprazole, omeprazole, pantoprazole, sertraline, voriconazole
+  CYP2C9      12  celecoxib, flurbiprofen, fluvastatin, fosphenytoin, ibuprofen, lornoxicam, meloxicam, phenytoin, piroxicam, siponimod, tenoxicam, warfarin
+  CYP2D6      11  amitriptyline, atomoxetine, codeine, nortriptyline, ondansetron, paroxetine, pitolisant, tamoxifen, tramadol, tropisetron, vortioxetine
+  CYP3A5       1  tacrolimus
+  CYP4F2       1  warfarin
+  DPYD         2  capecitabine, fluorouracil
+  G6PD         8  dapsone, methylene blue, nitrofurantoin, pegloticase, primaquine, rasburicase, tafenoquine, toluidine blue
+  HLA-A        1  carbamazepine
+  HLA-B        6  abacavir, allopurinol, carbamazepine, fosphenytoin, oxcarbazepine, phenytoin
+  MT-RNR1     11  amikacin, dibekacin, gentamicin, kanamycin, neomycin, netilmicin, paromomycin, plazomicin, ribostamycin, streptomycin, tobramycin
+  NAT2         1  hydralazine
+  NUDT15       3  azathioprine, mercaptopurine, thioguanine
+  RYR1         7  desflurane, enflurane, halothane, isoflurane, methoxyflurane, sevoflurane, succinylcholine
+  SLCO1B1      7  atorvastatin, fluvastatin, lovastatin, pitavastatin, pravastatin, rosuvastatin, simvastatin
+  TPMT         3  azathioprine, mercaptopurine, thioguanine
+  UGT1A1       2  atazanavir, irinotecan
+  VKORC1       1  warfarin

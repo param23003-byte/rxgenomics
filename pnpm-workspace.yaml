@@ -1,0 +1,6 @@
+# pnpm 11+ reads build-script approvals from here rather than from package.json.
+# Without this, `pnpm install` exits 1 with ERR_PNPM_IGNORED_BUILDS and the
+# Vercel deployment fails before the build starts.
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
