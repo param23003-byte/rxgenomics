@@ -1,12 +1,17 @@
 {
-  "name": "my-project",
-  "version": "0.1.0",
+  "name": "rxgenomics",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "verify": "vitest run tests/verification.test.ts --reporter=verbose",
+    "kb:fetch": "node scripts/fetch-cpic-phenotype-tables.mjs data/cpic",
+    "kb:build": "node scripts/build-kb.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -43,6 +48,7 @@
     "clsx": "^2.1.1",
     "cmdk": "1.1.1",
     "date-fns": "4.1.0",
+    "drizzle-orm": "^0.44.5",
     "embla-carousel-react": "8.6.0",
     "input-otp": "1.4.2",
     "lucide-react": "^0.564.0",
@@ -67,6 +73,13 @@
     "postcss": "^8.5",
     "tailwindcss": "^4.2.0",
     "tw-animate-css": "1.3.3",
-    "typescript": "5.7.3"
+    "typescript": "5.7.3",
+    "vitest": "^3.2.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
   }
 }
