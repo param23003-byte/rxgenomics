@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "verify": "vitest run tests/verification.test.ts --reporter=verbose",
+    "smoke": "node --experimental-strip-types scripts/smoke-scenarios.mjs",
     "kb:fetch": "node scripts/fetch-cpic-phenotype-tables.mjs data/cpic",
     "kb:build": "node scripts/build-kb.mjs"
   },
