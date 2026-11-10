@@ -52,5 +52,7 @@ export const questionnaireResponses = pgTable("questionnaire_responses", {
   /** SUS: 0-100. TAM: per-construct means in `subscales`. */
   score: real("score"),
   subscales: jsonb("subscales").$type<Record<string, number>>(),
+  /** Free-text answers to the open-ended questions, for thematic analysis. */
+  openResponses: jsonb("open_responses").$type<Record<string, string>>(),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 });

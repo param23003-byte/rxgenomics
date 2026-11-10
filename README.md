@@ -58,6 +58,17 @@ pnpm test     # all tests, including engine edge cases
 Current status: **199 passing.** Run this before every deployment and keep the output
 as the Level 1 quality record.
 
+## Study mode
+
+`/study` records Phase III usability sessions: task success, time per task,
+errors, SUS and TAM, exported as CSV for SPSS. It needs a Postgres database and
+a facilitator token; see `study/STUDY-MODE-SETUP.md`. The drug checker works
+without either.
+
+Study instruments live in `study/`: the case scenarios (`scenarios.ts`, with the
+facilitator handout in `CASE-SCENARIOS.md`) and the TAM questionnaire draft.
+Both are drafts pending Guide and Ethics Committee approval.
+
 ## Known limits
 
 - **Warfarin is not supported.** CPIC's warfarin guidance is a dosing algorithm, not a

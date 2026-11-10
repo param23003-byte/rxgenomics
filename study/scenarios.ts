@@ -34,7 +34,21 @@ export type Scenario = {
     phenotype: string;
     tier: AlertTier;
     recommendationId: string;
+    /**
+     * The prescribing decision the CPIC recommendation leads to. Participants
+     * choose one of these three, which makes task success objectively scorable
+     * instead of depending on a facilitator's reading of free text.
+     */
+    action: ActionAnswer;
   };
+};
+
+export type ActionAnswer = "use_as_planned" | "adjust_dose" | "avoid";
+
+export const ACTION_LABELS: Record<ActionAnswer, string> = {
+  use_as_planned: "Prescribe as planned, at the standard dose",
+  adjust_dose: "Prescribe, but change the dose",
+  avoid: "Do not use this drug; choose an alternative",
 };
 
 export const SCENARIOS: Scenario[] = [
@@ -48,7 +62,7 @@ export const SCENARIOS: Scenario[] = [
     drug: "clopidogrel",
     population: "CVI ACS PCI",
     kind: "actionable",
-    expected: { phenotype: "Poor Metabolizer", tier: "critical", recommendationId: "8480389" },
+    expected: { phenotype: "Poor Metabolizer", tier: "critical", recommendationId: "8480389", action: "avoid" },
   },
   {
     id: "CS-02",
@@ -60,7 +74,7 @@ export const SCENARIOS: Scenario[] = [
     drug: "clopidogrel",
     population: "CVI ACS PCI",
     kind: "actionable",
-    expected: { phenotype: "Intermediate Metabolizer", tier: "critical", recommendationId: "8480387" },
+    expected: { phenotype: "Intermediate Metabolizer", tier: "critical", recommendationId: "8480387", action: "avoid" },
   },
   {
     id: "CS-03",
@@ -72,7 +86,7 @@ export const SCENARIOS: Scenario[] = [
     drug: "clopidogrel",
     population: "CVI ACS PCI",
     kind: "normal",
-    expected: { phenotype: "Normal Metabolizer", tier: "normal", recommendationId: "8480385" },
+    expected: { phenotype: "Normal Metabolizer", tier: "normal", recommendationId: "8480385", action: "use_as_planned" },
   },
   {
     id: "CS-04",
@@ -84,7 +98,7 @@ export const SCENARIOS: Scenario[] = [
     drug: "carbamazepine",
     population: "CBZ naive",
     kind: "actionable",
-    expected: { phenotype: "*15:02 positive", tier: "critical", recommendationId: "8480092" },
+    expected: { phenotype: "*15:02 positive", tier: "critical", recommendationId: "8480092", action: "avoid" },
   },
   {
     id: "CS-05",
@@ -95,7 +109,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "*4/*4",
     drug: "codeine",
     kind: "actionable",
-    expected: { phenotype: "Poor Metabolizer", tier: "critical", recommendationId: "8480417" },
+    expected: { phenotype: "Poor Metabolizer", tier: "critical", recommendationId: "8480417", action: "avoid" },
   },
   {
     id: "CS-06",
@@ -106,7 +120,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "*1/*1x2",
     drug: "tramadol",
     kind: "actionable",
-    expected: { phenotype: "Ultrarapid Metabolizer", tier: "critical", recommendationId: "8481540" },
+    expected: { phenotype: "Ultrarapid Metabolizer", tier: "critical", recommendationId: "8481540", action: "avoid" },
   },
   {
     id: "CS-07",
@@ -117,7 +131,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "*1/*1",
     drug: "codeine",
     kind: "normal",
-    expected: { phenotype: "Normal Metabolizer", tier: "normal", recommendationId: "8480415" },
+    expected: { phenotype: "Normal Metabolizer", tier: "normal", recommendationId: "8480415", action: "use_as_planned" },
   },
   {
     id: "CS-08",
@@ -128,7 +142,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "c.1905+1G>A (*2A)/Reference",
     drug: "capecitabine",
     kind: "actionable",
-    expected: { phenotype: "Intermediate Metabolizer", tier: "critical", recommendationId: "8480749" },
+    expected: { phenotype: "Intermediate Metabolizer", tier: "critical", recommendationId: "8480749", action: "adjust_dose" },
   },
   {
     id: "CS-09",
@@ -139,7 +153,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "*1/*3A",
     drug: "azathioprine",
     kind: "actionable",
-    expected: { phenotype: "Intermediate Metabolizer", tier: "critical", recommendationId: "8480084" },
+    expected: { phenotype: "Intermediate Metabolizer", tier: "critical", recommendationId: "8480084", action: "adjust_dose" },
   },
   {
     id: "CS-10",
@@ -150,7 +164,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "*5/*5",
     drug: "simvastatin",
     kind: "actionable",
-    expected: { phenotype: "Poor Function", tier: "critical", recommendationId: "8481448" },
+    expected: { phenotype: "Poor Function", tier: "critical", recommendationId: "8481448", action: "avoid" },
   },
   {
     id: "CS-11",
@@ -161,7 +175,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "*1/*1",
     drug: "simvastatin",
     kind: "normal",
-    expected: { phenotype: "Normal Function", tier: "normal", recommendationId: "8481445" },
+    expected: { phenotype: "Normal Function", tier: "normal", recommendationId: "8481445", action: "use_as_planned" },
   },
   {
     id: "CS-12",
@@ -172,7 +186,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "Mediterranean Haplotype",
     drug: "primaquine",
     kind: "actionable",
-    expected: { phenotype: "Deficient", tier: "critical", recommendationId: "8481351" },
+    expected: { phenotype: "Deficient", tier: "critical", recommendationId: "8481351", action: "avoid" },
   },
   {
     id: "CS-13",
@@ -183,7 +197,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "*57:01 positive",
     drug: "abacavir",
     kind: "actionable",
-    expected: { phenotype: "*57:01 positive", tier: "critical", recommendationId: "8479702" },
+    expected: { phenotype: "*57:01 positive", tier: "critical", recommendationId: "8479702", action: "avoid" },
   },
   {
     id: "CS-14",
@@ -194,7 +208,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "*1/*3",
     drug: "tacrolimus",
     kind: "actionable",
-    expected: { phenotype: "Intermediate Metabolizer", tier: "critical", recommendationId: "8481452" },
+    expected: { phenotype: "Intermediate Metabolizer", tier: "critical", recommendationId: "8481452", action: "adjust_dose" },
   },
   {
     id: "CS-15",
@@ -205,7 +219,7 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "*1/*17",
     drug: "escitalopram",
     kind: "actionable",
-    expected: { phenotype: "Rapid Metabolizer", tier: "warning", recommendationId: "8480170" },
+    expected: { phenotype: "Rapid Metabolizer", tier: "warning", recommendationId: "8480170", action: "use_as_planned" },
   },
   {
     id: "CS-16",
@@ -216,6 +230,6 @@ export const SCENARIOS: Scenario[] = [
     diplotype: "*1/*1",
     drug: "celecoxib",
     kind: "normal",
-    expected: { phenotype: "Normal Metabolizer", tier: "normal", recommendationId: "8480112" },
+    expected: { phenotype: "Normal Metabolizer", tier: "normal", recommendationId: "8480112", action: "use_as_planned" },
   },
 ];
