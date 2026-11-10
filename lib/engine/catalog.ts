@@ -107,6 +107,26 @@ export function sampleProfiles() {
 
 export const populationMeta = pop.meta;
 
+/**
+ * Flat list of the values a dropdown may offer for this gene, commonest first.
+ *
+ * For HLA this returns the carrier statuses exactly as the engine accepts them
+ * ("*57:01 positive"), not bare "positive"/"negative": those would be joined
+ * into "positive/negative", which is not a diplotype and is rejected.
+ */
+export function alleleCatalog(gene: string): string[] {
+  if (CARRIER_GENES.includes(gene)) return phenotypeOptions(gene).map((p) => p.phenotype);
+  return alleleOptions(gene).map((a) => a.name);
+}
+
+/**
+ * True when the gene is entered as one value rather than a pair: HLA carrier
+ * status, and the X-linked genes where a male hemizygote has a single allele.
+ */
+export function isSingleEntryGene(gene: string): boolean {
+  return CARRIER_GENES.includes(gene) || SINGLE_ALLELE_GENES.includes(gene);
+}
+
 /** Example inputs shown as hints next to a free-text gene field. */
 export const GENE_HINTS: Record<string, string> = {
   "HLA-A": "*31:01 positive",
