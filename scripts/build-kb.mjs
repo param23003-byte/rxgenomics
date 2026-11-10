@@ -44,7 +44,9 @@ for (const r of recRows) {
   const rec = recs.get(r.recommendation_id) ?? {
     id: r.recommendation_id,
     drug: r.drugname,
-    population: r.population,
+    // Some CPIC population labels carry a trailing space ("CVI ACS PCI ").
+    // Trim so they match cleanly and read correctly in the UI.
+    population: r.population.trim(),
     lookup: {},
     recommendation: r.drugrecommendation,
     classification: r.classification,
