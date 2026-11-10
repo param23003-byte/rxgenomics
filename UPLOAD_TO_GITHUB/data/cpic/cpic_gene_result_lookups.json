@@ -1,0 +1,2622 @@
+[
+ {
+  "phenotypeid": 8490802,
+  "lookupkey": {
+   "Decreased function": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two decreased function alleles"
+ },
+ {
+  "phenotypeid": 8490805,
+  "lookupkey": {
+   "Normal function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Normal function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8490808,
+  "lookupkey": {
+   "Normal function": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two normal function alleles"
+ },
+ {
+  "phenotypeid": 8490811,
+  "lookupkey": {
+   "Malignant Hyperthermia associated": 2
+  },
+  "function1": "Malignant Hyperthermia associated",
+  "function2": "Malignant Hyperthermia associated",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual homozygous or compound heterozygous for a CACNA1S Malignant hyperthermia-causative variant as designated by the EMHG"
+ },
+ {
+  "phenotypeid": 8490811,
+  "lookupkey": {
+   "Normal function": 1,
+   "Malignant Hyperthermia associated": 1
+  },
+  "function1": "Malignant Hyperthermia associated",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual heterozygous for a CACNA1S Malignant hyperthermia-causative variant as designated by the EMHG"
+ },
+ {
+  "phenotypeid": 8490819,
+  "lookupkey": {
+   "Normal function": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual negative for a CACNA1S malignant hyperthermia–causative variant as designated by the EMHG"
+ },
+ {
+  "phenotypeid": 8490822,
+  "lookupkey": {
+   "ivacaftor responsive": 2
+  },
+  "function1": "ivacaftor responsive",
+  "function2": "ivacaftor responsive",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual homozygous or compound heterozygous for a CFTR variant listed in the FDA-approved drug label as being responsive to ivacaftor"
+ },
+ {
+  "phenotypeid": 8490822,
+  "lookupkey": {
+   "ivacaftor responsive": 1,
+   "ivacaftor non-responsive": 1
+  },
+  "function1": "ivacaftor responsive",
+  "function2": "ivacaftor non-responsive",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual diagnosed with cystic fibrosis (CF) and heterozygous for a CFTR variant listed in the FDA-approved drug label as being responsive to ivacaftor"
+ },
+ {
+  "phenotypeid": 8496284,
+  "lookupkey": {
+   "ivacaftor non-responsive": 2
+  },
+  "function1": "ivacaftor non-responsive",
+  "function2": "ivacaftor non-responsive",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual diagnosed with cystic fibrosis (CF) and negative for a CFTR variant listed in the FDA-approved drug label as being responsive to ivacaftor"
+ },
+ {
+  "phenotypeid": 8496287,
+  "lookupkey": {
+   "Increased function": 2
+  },
+  "function1": "Increased function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two increased function alleles"
+ },
+ {
+  "phenotypeid": 8496290,
+  "lookupkey": {
+   "Normal function": 1,
+   "Increased function": 1
+  },
+  "function1": "Normal function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one increased function allele"
+ },
+ {
+  "phenotypeid": 8496298,
+  "lookupkey": {
+   "Normal function": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two normal function alleles"
+ },
+ {
+  "phenotypeid": 8496321,
+  "lookupkey": {
+   "Normal function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Normal function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8496321,
+  "lookupkey": {
+   "No function": 1,
+   "Normal function": 1
+  },
+  "function1": "Normal function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8496321,
+  "lookupkey": {
+   "Decreased function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8496321,
+  "lookupkey": {
+   "No function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8496480,
+  "lookupkey": {
+   "Decreased function": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two decreased function alleles"
+ },
+ {
+  "phenotypeid": 8496480,
+  "lookupkey": {
+   "No function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Decreased function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8496480,
+  "lookupkey": {
+   "No function": 2
+  },
+  "function1": "No function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two no function alleles"
+ },
+ {
+  "phenotypeid": 8496737,
+  "lookupkey": {
+   "Increased function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8496737,
+  "lookupkey": {
+   "Normal function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8496737,
+  "lookupkey": {
+   "Decreased function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8496737,
+  "lookupkey": {
+   "No function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8496737,
+  "lookupkey": {
+   "Uncertain function": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two uncertain function alleles"
+ },
+ {
+  "phenotypeid": 8497484,
+  "lookupkey": {
+   "Increased function": 2
+  },
+  "function1": "Increased function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two increased function alleles"
+ },
+ {
+  "phenotypeid": 8497487,
+  "lookupkey": {
+   "Normal function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one increased function allele"
+ },
+ {
+  "phenotypeid": 8497496,
+  "lookupkey": {
+   "Normal function": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two normal function alleles"
+ },
+ {
+  "phenotypeid": 8497526,
+  "lookupkey": {
+   "Normal function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Decreased function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8497526,
+  "lookupkey": {
+   "Decreased function": 1,
+   "Increased function": 1
+  },
+  "function1": "Decreased function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8497526,
+  "lookupkey": {
+   "Decreased function": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two decreased function alleles"
+ },
+ {
+  "phenotypeid": 8497599,
+  "lookupkey": {
+   "No function": 1,
+   "Normal function": 1
+  },
+  "function1": "Normal function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8497599,
+  "lookupkey": {
+   "No function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8497698,
+  "lookupkey": {
+   "No function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Decreased function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8497772,
+  "lookupkey": {
+   "No function": 2
+  },
+  "function1": "No function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two no function alleles"
+ },
+ {
+  "phenotypeid": 8497852,
+  "lookupkey": {
+   "Uncertain function": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two uncertain function alleles"
+ },
+ {
+  "phenotypeid": 8497852,
+  "lookupkey": {
+   "Increased function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8497852,
+  "lookupkey": {
+   "Normal function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8497852,
+  "lookupkey": {
+   "Decreased function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8497852,
+  "lookupkey": {
+   "No function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8498173,
+  "lookupkey": {
+   "1.0": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "1.0",
+  "activityvalue2": "1.0",
+  "totalactivityscore": "2.0",
+  "description": "An individual carrying two normal function alleles"
+ },
+ {
+  "phenotypeid": 8498178,
+  "lookupkey": {
+   "0.5": 1,
+   "1.0": 1
+  },
+  "function1": "Normal function",
+  "function2": "Decreased function",
+  "activityvalue1": "1.0",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "1.5",
+  "description": "An individual carrying one normal function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8498222,
+  "lookupkey": {
+   "0.0": 1,
+   "1.0": 1
+  },
+  "function1": "Normal function",
+  "function2": "No function",
+  "activityvalue1": "1.0",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "1.0",
+  "description": "An individual carrying one normal function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8498222,
+  "lookupkey": {
+   "0.5": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "0.5",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "1.0",
+  "description": "An individual carrying two decreased function alleles"
+ },
+ {
+  "phenotypeid": 8498482,
+  "lookupkey": {
+   "0.0": 1,
+   "0.5": 1
+  },
+  "function1": "Decreased function",
+  "function2": "No function",
+  "activityvalue1": "0.5",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "0.5",
+  "description": "An individual carrying one decreased function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8498757,
+  "lookupkey": {
+   "0.0": 2
+  },
+  "function1": "No function",
+  "function2": "No function",
+  "activityvalue1": "0.0",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "0.0",
+  "description": "An individual carrying two no function alleles"
+ },
+ {
+  "phenotypeid": 8498850,
+  "lookupkey": {
+   "0.0": 1,
+   "n/a": 1
+  },
+  "function1": "Unknown function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8498850,
+  "lookupkey": {
+   "n/a": 2
+  },
+  "function1": "Unknown function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two unknown function alleles"
+ },
+ {
+  "phenotypeid": 8498850,
+  "lookupkey": {
+   "n/a": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one uncertain function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8498850,
+  "lookupkey": {
+   "1.0": 1,
+   "n/a": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "1.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8498850,
+  "lookupkey": {
+   "0.5": 1,
+   "n/a": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8498850,
+  "lookupkey": {
+   "0.0": 1,
+   "n/a": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8498850,
+  "lookupkey": {
+   "n/a": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two uncertain function alleles"
+ },
+ {
+  "phenotypeid": 8498850,
+  "lookupkey": {
+   "1.0": 1,
+   "n/a": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "1.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8498850,
+  "lookupkey": {
+   "0.5": 1,
+   "n/a": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8501044,
+  "lookupkey": {
+   "≥3.0": 2
+  },
+  "function1": "Increased function",
+  "function2": "Increased function",
+  "activityvalue1": "≥3.0",
+  "activityvalue2": "≥3.0",
+  "totalactivityscore": "≥6.0",
+  "description": "An individual carrying multiplications of normal function alleles"
+ },
+ {
+  "phenotypeid": 8501049,
+  "lookupkey": {
+   "2.0": 1,
+   "≥3.0": 1
+  },
+  "function1": "Increased function",
+  "function2": "Increased function",
+  "activityvalue1": "≥3.0",
+  "activityvalue2": "2.0",
+  "totalactivityscore": "≥5.0",
+  "description": "An individual carrying multiplications of normal function alleles"
+ },
+ {
+  "phenotypeid": 8501063,
+  "lookupkey": {
+   "0.75": 1,
+   "≥3.0": 1
+  },
+  "function1": "Increased function",
+  "function2": "Decreased function",
+  "activityvalue1": "≥3.0",
+  "activityvalue2": "0.75",
+  "totalactivityscore": "≥3.75",
+  "description": "An individual carrying one allele with multiplications of a normal function allele and one allele with three copies of a decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501067,
+  "lookupkey": {
+   "1.0": 1,
+   "≥3.0": 1
+  },
+  "function1": "Increased function",
+  "function2": "Normal function",
+  "activityvalue1": "≥3.0",
+  "activityvalue2": "1.0",
+  "totalactivityscore": "≥4.0",
+  "description": "An individual carrying one allele with multiplications of a normal function allele and one normal function allele or a duplication of a decreased function allele with an activity value of 0.5"
+ },
+ {
+  "phenotypeid": 8501101,
+  "lookupkey": {
+   "0.5": 1,
+   "≥3.0": 1
+  },
+  "function1": "Increased function",
+  "function2": "Decreased function",
+  "activityvalue1": "≥3.0",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "≥3.5",
+  "description": "An individual carrying one allele with multiplications of a normal function allele and one decreased function allele with an activity value of 0.5 or a duplication of a decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501129,
+  "lookupkey": {
+   "0.25": 1,
+   "≥3.0": 1
+  },
+  "function1": "Increased function",
+  "function2": "Decreased function",
+  "activityvalue1": "≥3.0",
+  "activityvalue2": "0.25",
+  "totalactivityscore": "≥3.25",
+  "description": "An individual carrying one allele with multiplications of a normal function allele and one decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501153,
+  "lookupkey": {
+   "0.0": 1,
+   "≥3.0": 1
+  },
+  "function1": "Increased function",
+  "function2": "No function",
+  "activityvalue1": "≥3.0",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "≥3.0",
+  "description": "An individual carrying one allele with multiplications of a normal function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8501251,
+  "lookupkey": {
+   "2.0": 2
+  },
+  "function1": "Increased function",
+  "function2": "Increased function",
+  "activityvalue1": "2.0",
+  "activityvalue2": "2.0",
+  "totalactivityscore": "4.0",
+  "description": "An individual carrying two duplicated normal function alleles"
+ },
+ {
+  "phenotypeid": 8501274,
+  "lookupkey": {
+   "2.0": 1,
+   "0.75": 1
+  },
+  "function1": "Increased function",
+  "function2": "Decreased function",
+  "activityvalue1": "2.0",
+  "activityvalue2": "0.75",
+  "totalactivityscore": "2.75",
+  "description": "An individual carrying one duplicated normal function allele and one allele with three copies of a decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501282,
+  "lookupkey": {
+   "1.0": 1,
+   "2.0": 1
+  },
+  "function1": "Increased function",
+  "function2": "Normal function",
+  "activityvalue1": "2.0",
+  "activityvalue2": "1.0",
+  "totalactivityscore": "3.0",
+  "description": "An individual carrying one duplicated normal function allele and one normal function allele or a duplication of a decreased function allele with an activity value of 0.5"
+ },
+ {
+  "phenotypeid": 8501380,
+  "lookupkey": {
+   "0.5": 1,
+   "2.0": 1
+  },
+  "function1": "Increased function",
+  "function2": "Decreased function",
+  "activityvalue1": "2.0",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "2.5",
+  "description": "An individual carrying one duplicated normal function allele and one decreased function allele with an activity value of 0.5 or a duplication of a decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501460,
+  "lookupkey": {
+   "2.0": 1,
+   "0.25": 1
+  },
+  "function1": "Increased function",
+  "function2": "Decreased function",
+  "activityvalue1": "2.0",
+  "activityvalue2": "0.25",
+  "totalactivityscore": "2.25",
+  "description": "An individual carrying one duplicated normal function allele and one decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501528,
+  "lookupkey": {
+   "0.0": 1,
+   "2.0": 1
+  },
+  "function1": "Increased function",
+  "function2": "No function",
+  "activityvalue1": "2.0",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "2.0",
+  "description": "An individual carrying one duplicated normal function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8501528,
+  "lookupkey": {
+   "1.0": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "1.0",
+  "activityvalue2": "1.0",
+  "totalactivityscore": "2.0",
+  "description": "An individual carrying two normal function alleles or one normal function allele and a duplication of a decreased function allele with an activity value of 0.5 or two alleles with a duplication of a decreased function allele with an activity value of 0.5"
+ },
+ {
+  "phenotypeid": 8501818,
+  "lookupkey": {
+   "0.75": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "0.75",
+  "activityvalue2": "0.75",
+  "totalactivityscore": "1.5",
+  "description": "An individual carrying two alleles with three copies of a decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501818,
+  "lookupkey": {
+   "0.5": 1,
+   "1.0": 1
+  },
+  "function1": "Normal function",
+  "function2": "Decreased function",
+  "activityvalue1": "1.0",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "1.5",
+  "description": "An individual carrying one normal function allele or a duplication of a decreased function allele with an activity value of 0.5 and one decreased function allele with an activity value of 0.5 or a duplication of a decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501821,
+  "lookupkey": {
+   "1.0": 1,
+   "0.75": 1
+  },
+  "function1": "Decreased function",
+  "function2": "Normal function",
+  "activityvalue1": "0.75",
+  "activityvalue2": "1.0",
+  "totalactivityscore": "1.75",
+  "description": "An individual carrying one allele with three copies of a decreased function allele with an activity value of 0.25 and one normal function allele or a duplication of a decreased function allele with an activity value of 0.5"
+ },
+ {
+  "phenotypeid": 8501839,
+  "lookupkey": {
+   "0.5": 1,
+   "0.75": 1
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "0.75",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "1.25",
+  "description": "An individual carrying one allele with three copies of a decreased function allele with an activity value of 0.25 and one decreased function allele with an activity value of 0.5 or a duplication of a decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501839,
+  "lookupkey": {
+   "1.0": 1,
+   "0.25": 1
+  },
+  "function1": "Normal function",
+  "function2": "Decreased function",
+  "activityvalue1": "1.0",
+  "activityvalue2": "0.25",
+  "totalactivityscore": "1.25",
+  "description": "An individual carrying one normal function allele or a duplication of a decreased function allele with an activity value of 0.5 and one decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501854,
+  "lookupkey": {
+   "0.25": 1,
+   "0.75": 1
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "0.75",
+  "activityvalue2": "0.25",
+  "totalactivityscore": "1.0",
+  "description": "An individual carrying one allele with three copies of a decreased function allele with an activity value of 0.25 and one decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501854,
+  "lookupkey": {
+   "0.0": 1,
+   "1.0": 1
+  },
+  "function1": "Normal function",
+  "function2": "No function",
+  "activityvalue1": "1.0",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "1.0",
+  "description": "An individual carrying one normal function allele or a duplication of a decreased function allele with an activity value of 0.5 and one no function allele"
+ },
+ {
+  "phenotypeid": 8501854,
+  "lookupkey": {
+   "0.5": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "0.5",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "1.0",
+  "description": "An individual carrying two decreased function alleles with an activity value of 0.5 or one decreased function allele with an activity value of 0.5 and a duplication of a decreased function allele with an activity value of 0.25 or two alleles with a duplication of an decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8501867,
+  "lookupkey": {
+   "0.0": 1,
+   "0.75": 1
+  },
+  "function1": "Decreased function",
+  "function2": "No function",
+  "activityvalue1": "0.75",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "0.75",
+  "description": "An individual carrying one allele with three copies of a decreased function allele with an activity value of 0.25 and one no function allele"
+ },
+ {
+  "phenotypeid": 8501867,
+  "lookupkey": {
+   "0.5": 1,
+   "0.25": 1
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "0.5",
+  "activityvalue2": "0.25",
+  "totalactivityscore": "0.75",
+  "description": "An individual carrying one decreased function allele with an activity value of 0.5 or a duplication of a decreased function allele with an activity value of 0.25 and one decreased function allele with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8503445,
+  "lookupkey": {
+   "0.0": 1,
+   "0.5": 1
+  },
+  "function1": "Decreased function",
+  "function2": "No function",
+  "activityvalue1": "0.5",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "0.5",
+  "description": "An individual carrying one decreased function allele with an activity value of 0.5 or a duplication of a decreased function allele with an activity value of 0.25 and one no function allele"
+ },
+ {
+  "phenotypeid": 8503445,
+  "lookupkey": {
+   "0.25": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "0.25",
+  "activityvalue2": "0.25",
+  "totalactivityscore": "0.5",
+  "description": "An individual carrying two decreased function alleles with an activity value of 0.25"
+ },
+ {
+  "phenotypeid": 8504138,
+  "lookupkey": {
+   "0.0": 1,
+   "0.25": 1
+  },
+  "function1": "Decreased function",
+  "function2": "No function",
+  "activityvalue1": "0.25",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "0.25",
+  "description": "An individual carrying one decreased function allele with an activity value of 0.25 and one no function allele"
+ },
+ {
+  "phenotypeid": 8504668,
+  "lookupkey": {
+   "0.0": 2
+  },
+  "function1": "No function",
+  "function2": "No function",
+  "activityvalue1": "0.0",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "0.0",
+  "description": "An individual carrying two no function alleles"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "n/a": 1,
+   "≥3.0": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "≥3.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one allele with multiplications of a normal function allele and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "2.0": 1,
+   "n/a": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "2.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one duplicated normal function allele and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "n/a": 1,
+   "0.75": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.75",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one allele with three copies of a decreased function allele with an activity value of 0.25 and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "1.0": 1,
+   "n/a": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "1.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele or a duplication of a decreased function allele with an activity value of 0.5 and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "0.5": 1,
+   "n/a": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele with an activity value of 0.5 or a duplication of a decreased function allele with an activity value of 0.25 and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "n/a": 1,
+   "0.25": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.25",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele with an activity value of 0.25 and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "0.0": 1,
+   "n/a": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one uncertain function or unknown allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "n/a": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two uncertain function alleles or two unknown function alleles or one unknown and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "n/a": 1,
+   "≥3.0": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "≥3.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one allele with multiplications of a normal function allele and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "2.0": 1,
+   "n/a": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "2.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one duplicated normal function allele and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "n/a": 1,
+   "0.75": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.75",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one allele with three copies of a decreased function allele with an activity value of 0.25 and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "1.0": 1,
+   "n/a": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "1.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele or a duplication of a decreased function allele with an activity value of 0.5 and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "0.5": 1,
+   "n/a": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele with an activity value of 0.5 or a duplication of a decreased function allele with an activity value of 0.25 and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "n/a": 1,
+   "0.25": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.25",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele with an activity value of 0.25 and one uncertain or unknown function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "0.0": 1,
+   "n/a": 1
+  },
+  "function1": "Unknown function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one uncertain function or unknown allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "n/a": 2
+  },
+  "function1": "Unknown function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two uncertain function alleles or two unknown function alleles or one unknown and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8505846,
+  "lookupkey": {
+   "n/a": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two uncertain function alleles or two unknown function alleles or one unknown and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8517947,
+  "lookupkey": {
+   "Normal function": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two normal function alleles"
+ },
+ {
+  "phenotypeid": 8517950,
+  "lookupkey": {
+   "No function": 1,
+   "Normal function": 1
+  },
+  "function1": "Normal function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8517955,
+  "lookupkey": {
+   "No function": 2
+  },
+  "function1": "No function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two no function alleles"
+ },
+ {
+  "phenotypeid": 8517963,
+  "lookupkey": {
+   "Normal function": 1,
+   "Unknown function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8517967,
+  "lookupkey": {
+   "No function": 1,
+   "Unknown function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one unknown function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8517967,
+  "lookupkey": {
+   "Unknown function": 2
+  },
+  "function1": "Unknown function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two unknown function alleles"
+ },
+ {
+  "phenotypeid": 8517979,
+  "lookupkey": {
+   "1.0": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "1.0",
+  "activityvalue2": "1.0",
+  "totalactivityscore": "2.0",
+  "description": "An individual carrying two normal function alleles"
+ },
+ {
+  "phenotypeid": 8519577,
+  "lookupkey": {
+   "0.5": 1,
+   "1.0": 1
+  },
+  "function1": "Normal function",
+  "function2": "Decreased function",
+  "activityvalue1": "1.0",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "1.5",
+  "description": "An individual carrying one normal function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8519971,
+  "lookupkey": {
+   "0.0": 1,
+   "1.0": 1
+  },
+  "function1": "Normal function",
+  "function2": "No function",
+  "activityvalue1": "1.0",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "1.0",
+  "description": "An individual carrying one normal function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8519971,
+  "lookupkey": {
+   "0.5": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "0.5",
+  "activityvalue2": "0.5",
+  "totalactivityscore": "1.0",
+  "description": "An individual carrying two decreased function alleles"
+ },
+ {
+  "phenotypeid": 8521178,
+  "lookupkey": {
+   "0.0": 1,
+   "0.5": 1
+  },
+  "function1": "Decreased function",
+  "function2": "No function",
+  "activityvalue1": "0.5",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "0.5",
+  "description": "An individual carrying one decreased function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8521327,
+  "lookupkey": {
+   "0.0": 2
+  },
+  "function1": "No function",
+  "function2": "No function",
+  "activityvalue1": "0.0",
+  "activityvalue2": "0.0",
+  "totalactivityscore": "0.0",
+  "description": "An individual carrying two no function alleles"
+ },
+ {
+  "phenotypeid": 8521560,
+  "lookupkey": {
+   "IV/Normal": 1
+  },
+  "function1": "IV/Normal",
+  "function2": "N/A",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person with one X chromosome carrying a non-deficient (class IV) allele"
+ },
+ {
+  "phenotypeid": 8521560,
+  "lookupkey": {
+   "IV/Normal": 2
+  },
+  "function1": "IV/Normal",
+  "function2": "IV/Normal",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying two non-deficient (class IV) alleles"
+ },
+ {
+  "phenotypeid": 8521567,
+  "lookupkey": {
+   "III/Deficient": 1
+  },
+  "function1": "III/Deficient",
+  "function2": "N/A",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person with one X chromosome carrying a deficient (class III) allele"
+ },
+ {
+  "phenotypeid": 8521567,
+  "lookupkey": {
+   "II/Deficient": 1
+  },
+  "function1": "II/Deficient",
+  "function2": "N/A",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person with one X chromosome carrying a deficient (class II) allele"
+ },
+ {
+  "phenotypeid": 8521567,
+  "lookupkey": {
+   "III/Deficient": 2
+  },
+  "function1": "III/Deficient",
+  "function2": "III/Deficient",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying two deficient (class III) alleles"
+ },
+ {
+  "phenotypeid": 8521567,
+  "lookupkey": {
+   "II/Deficient": 1,
+   "III/Deficient": 1
+  },
+  "function1": "III/Deficient",
+  "function2": "II/Deficient",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying one deficient (class II) allele and one deficient (class III) allele"
+ },
+ {
+  "phenotypeid": 8521567,
+  "lookupkey": {
+   "III/Deficient": 1,
+   "I/Deficient with CNSHA": 1
+  },
+  "function1": "III/Deficient",
+  "function2": "I/Deficient with CNSHA",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying one deficient (class I) allele and one deficient (class III) allele"
+ },
+ {
+  "phenotypeid": 8521567,
+  "lookupkey": {
+   "II/Deficient": 2
+  },
+  "function1": "II/Deficient",
+  "function2": "II/Deficient",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying two deficient (class II) alleles"
+ },
+ {
+  "phenotypeid": 8521567,
+  "lookupkey": {
+   "II/Deficient": 1,
+   "I/Deficient with CNSHA": 1
+  },
+  "function1": "II/Deficient",
+  "function2": "I/Deficient with CNSHA",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying one deficient (class I) allele and one deficient (class II) allele"
+ },
+ {
+  "phenotypeid": 8521660,
+  "lookupkey": {
+   "I/Deficient with CNSHA": 1
+  },
+  "function1": "I/Deficient with CNSHA",
+  "function2": "N/A",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person with one X chromosome carrying a deficient (class I) allele"
+ },
+ {
+  "phenotypeid": 8521660,
+  "lookupkey": {
+   "I/Deficient with CNSHA": 2
+  },
+  "function1": "I/Deficient with CNSHA",
+  "function2": "I/Deficient with CNSHA",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying two deficient (class I) alleles"
+ },
+ {
+  "phenotypeid": 8521764,
+  "lookupkey": {
+   "IV/Normal": 1,
+   "III/Deficient": 1
+  },
+  "function1": "IV/Normal",
+  "function2": "III/Deficient",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying one non-deficient (class IV) allele and one deficient (class III) allele"
+ },
+ {
+  "phenotypeid": 8521764,
+  "lookupkey": {
+   "IV/Normal": 1,
+   "II/Deficient": 1
+  },
+  "function1": "IV/Normal",
+  "function2": "II/Deficient",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying one non-deficient (class IV) allele and one deficient (class II) allele"
+ },
+ {
+  "phenotypeid": 8521764,
+  "lookupkey": {
+   "IV/Normal": 1,
+   "I/Deficient with CNSHA": 1
+  },
+  "function1": "IV/Normal",
+  "function2": "I/Deficient with CNSHA",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying one non-deficient (class IV) allele and one deficient (class I) allele"
+ },
+ {
+  "phenotypeid": 8538230,
+  "lookupkey": {
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "N/A",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person with one X chromosome carrying an uncertain function allele"
+ },
+ {
+  "phenotypeid": 8538230,
+  "lookupkey": {
+   "IV/Normal": 1,
+   "Uncertain function": 1
+  },
+  "function1": "IV/Normal",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying one non-deficient (class IV) allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8538230,
+  "lookupkey": {
+   "III/Deficient": 1,
+   "Uncertain function": 1
+  },
+  "function1": "III/Deficient",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying one deficient (class II) allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8538230,
+  "lookupkey": {
+   "II/Deficient": 1,
+   "Uncertain function": 1
+  },
+  "function1": "II/Deficient",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying one deficient (class III) allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8538230,
+  "lookupkey": {
+   "Uncertain function": 1,
+   "I/Deficient with CNSHA": 1
+  },
+  "function1": "I/Deficient with CNSHA",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying one deficient (class I) allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8538230,
+  "lookupkey": {
+   "Uncertain function": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "A person carrying two uncertain function alleles"
+ },
+ {
+  "phenotypeid": 8539350,
+  "lookupkey": {
+   "increased risk of aminoglycoside-induced hearing loss": 1
+  },
+  "function1": "increased risk of aminoglycoside-induced hearing loss",
+  "function2": "N/A",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "Individuals with a MT-RNR1 variant associated with an increased risk of aminoglycoside-induced hearing loss"
+ },
+ {
+  "phenotypeid": 8539355,
+  "lookupkey": {
+   "normal risk of aminoglycoside-induced hearing loss": 1
+  },
+  "function1": "normal risk of aminoglycoside-induced hearing loss",
+  "function2": "N/A",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "Individuals with no detectable MT-RNR1 variant or a variant associated with normal risk of aminoglycoside-induced hearing loss"
+ },
+ {
+  "phenotypeid": 8539358,
+  "lookupkey": {
+   "uncertain risk of aminoglycoside-induced hearing loss": 1
+  },
+  "function1": "uncertain risk of aminoglycoside-induced hearing loss",
+  "function2": "N/A",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "Individuals with a MT-RNR1 variant associated with an uncertain risk of aminoglycoside-induced hearing loss"
+ },
+ {
+  "phenotypeid": 8539380,
+  "lookupkey": {
+   "Increased function": 2
+  },
+  "function1": "Increased function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two increased function alleles"
+ },
+ {
+  "phenotypeid": 8539385,
+  "lookupkey": {
+   "Decreased function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8539467,
+  "lookupkey": {
+   "Decreased function": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two decreased function alleles"
+ },
+ {
+  "phenotypeid": 8540289,
+  "lookupkey": {
+   "Unknown function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8540289,
+  "lookupkey": {
+   "Increased function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Increased function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8540289,
+  "lookupkey": {
+   "Unknown function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Decreased function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one uncknown function allele"
+ },
+ {
+  "phenotypeid": 8540289,
+  "lookupkey": {
+   "Decreased function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Decreased function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8540289,
+  "lookupkey": {
+   "Unknown function": 2
+  },
+  "function1": "Unknown function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two unknown function alleles"
+ },
+ {
+  "phenotypeid": 8540289,
+  "lookupkey": {
+   "Unknown function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one unknown function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8540289,
+  "lookupkey": {
+   "Uncertain function": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two uncertain function alleles"
+ },
+ {
+  "phenotypeid": 8541164,
+  "lookupkey": {
+   "Normal function": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two normal function alleles"
+ },
+ {
+  "phenotypeid": 8541164,
+  "lookupkey": {
+   "Normal function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Normal function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8541170,
+  "lookupkey": {
+   "No function": 1,
+   "Normal function": 1
+  },
+  "function1": "Normal function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8541170,
+  "lookupkey": {
+   "Decreased function": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two decreased function alleles"
+ },
+ {
+  "phenotypeid": 8541188,
+  "lookupkey": {
+   "No function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8541286,
+  "lookupkey": {
+   "No function": 2
+  },
+  "function1": "No function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two no function alleles"
+ },
+ {
+  "phenotypeid": 8541286,
+  "lookupkey": {
+   "No function": 1,
+   "Decreased function": 1
+  },
+  "function1": "No function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8541391,
+  "lookupkey": {
+   "Normal function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8541391,
+  "lookupkey": {
+   "Decreased function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8541391,
+  "lookupkey": {
+   "Uncertain function": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two uncertain function alleles"
+ },
+ {
+  "phenotypeid": 8541455,
+  "lookupkey": {
+   "Normal function": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual negative for a RYR1 variant classified as pathogenic or likely pathogenic by the ClinGen Malignant Hyperthermia Susceptibility Variant Curation Expert Panel."
+ },
+ {
+  "phenotypeid": 8541455,
+  "lookupkey": {
+   "Normal function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Normal function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual negative for a RYR1 variant classified as pathogenic or likely pathogenic by the ClinGen Malignant Hyperthermia Susceptibility Variant Curation Expert Panel."
+ },
+ {
+  "phenotypeid": 8541455,
+  "lookupkey": {
+   "Uncertain function": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual negative for a RYR1 variant classified as pathogenic or likely pathogenic by the ClinGen Malignant Hyperthermia Susceptibility Variant Curation Expert Panel."
+ },
+ {
+  "phenotypeid": 8573085,
+  "lookupkey": {
+   "Malignant Hyperthermia associated": 2
+  },
+  "function1": "Malignant Hyperthermia associated",
+  "function2": "Malignant Hyperthermia associated",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual homozygous or compound heterozygous for a RYR1 variant(s) classified as pathogenic or likely pathogenic by the ClinGen Malignant Hyperthermia Susceptibility Variant Curation Expert Panel. Individuals who have biallelic (homozygous or compound heterozygous) pathogenic variants in RYR1 generally will have autosomal recessive myopathies and should be managed according to the standard of care for those disorders."
+ },
+ {
+  "phenotypeid": 8573085,
+  "lookupkey": {
+   "Normal function": 1,
+   "Malignant Hyperthermia associated": 1
+  },
+  "function1": "Malignant Hyperthermia associated",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual heterozygous for a RYR1 variant classified as pathogenic or likely pathogenic by the ClinGen Malignant Hyperthermia Susceptibility Variant Curation Expert Panel."
+ },
+ {
+  "phenotypeid": 8573085,
+  "lookupkey": {
+   "Uncertain function": 1,
+   "Malignant Hyperthermia associated": 1
+  },
+  "function1": "Malignant Hyperthermia associated",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual heterozygous for a RYR1 variant classified as pathogenic or likely pathogenic by the ClinGen Malignant Hyperthermia Susceptibility Variant Curation Expert Panel."
+ },
+ {
+  "phenotypeid": 8601841,
+  "lookupkey": {
+   "Increased function": 2
+  },
+  "function1": "Increased function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two increased function alleles"
+ },
+ {
+  "phenotypeid": 8601846,
+  "lookupkey": {
+   "No function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one increased function allele"
+ },
+ {
+  "phenotypeid": 8601846,
+  "lookupkey": {
+   "No function": 1,
+   "Normal function": 1
+  },
+  "function1": "Normal function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8601870,
+  "lookupkey": {
+   "Normal function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one increased function allele"
+ },
+ {
+  "phenotypeid": 8601870,
+  "lookupkey": {
+   "Normal function": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two normal function alleles"
+ },
+ {
+  "phenotypeid": 8601876,
+  "lookupkey": {
+   "Increased function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Increased function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8601876,
+  "lookupkey": {
+   "Unknown function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8601876,
+  "lookupkey": {
+   "Normal function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8601876,
+  "lookupkey": {
+   "Uncertain function": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two uncertain function alleles"
+ },
+ {
+  "phenotypeid": 8601876,
+  "lookupkey": {
+   "Normal function": 1,
+   "Unknown function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8601876,
+  "lookupkey": {
+   "Unknown function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one unknown and one uncertain function alleles"
+ },
+ {
+  "phenotypeid": 8601876,
+  "lookupkey": {
+   "Unknown function": 2
+  },
+  "function1": "Unknown function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two unknown function alleles"
+ },
+ {
+  "phenotypeid": 8601925,
+  "lookupkey": {
+   "No function": 2
+  },
+  "function1": "No function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two no function alleles"
+ },
+ {
+  "phenotypeid": 8602020,
+  "lookupkey": {
+   "No function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8602020,
+  "lookupkey": {
+   "No function": 1,
+   "Unknown function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8602603,
+  "lookupkey": {
+   "No function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8602603,
+  "lookupkey": {
+   "No function": 1,
+   "Unknown function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8602948,
+  "lookupkey": {
+   "No function": 1,
+   "Decreased function": 1
+  },
+  "function1": "No function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one no function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8602948,
+  "lookupkey": {
+   "No function": 1,
+   "Normal function": 1
+  },
+  "function1": "Normal function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one no function allele"
+ },
+ {
+  "phenotypeid": 8602948,
+  "lookupkey": {
+   "Decreased function": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two decreasedl function alleles"
+ },
+ {
+  "phenotypeid": 8602988,
+  "lookupkey": {
+   "No function": 2
+  },
+  "function1": "No function",
+  "function2": "No function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two no function alleles"
+ },
+ {
+  "phenotypeid": 8603731,
+  "lookupkey": {
+   "Normal function": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two normal function alleles"
+ },
+ {
+  "phenotypeid": 8603731,
+  "lookupkey": {
+   "Normal function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Normal function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8603777,
+  "lookupkey": {
+   "Normal function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8603777,
+  "lookupkey": {
+   "Decreased function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Uncertain function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one uncertain function allele"
+ },
+ {
+  "phenotypeid": 8603777,
+  "lookupkey": {
+   "Uncertain function": 2
+  },
+  "function1": "Uncertain function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two uncertain function alleles"
+ },
+ {
+  "phenotypeid": 8603777,
+  "lookupkey": {
+   "Normal function": 1,
+   "Unknown function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8603777,
+  "lookupkey": {
+   "Unknown function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8603777,
+  "lookupkey": {
+   "Unknown function": 2
+  },
+  "function1": "Unknown function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two unknown function alleles"
+ },
+ {
+  "phenotypeid": 8603777,
+  "lookupkey": {
+   "Unknown function": 1,
+   "Uncertain function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Uncertain function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one uncertain function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8603848,
+  "lookupkey": {
+   "Increased function": 2
+  },
+  "function1": "Increased function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two increased function alleles"
+ },
+ {
+  "phenotypeid": 8603848,
+  "lookupkey": {
+   "Normal function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one increased function allele"
+ },
+ {
+  "phenotypeid": 8603848,
+  "lookupkey": {
+   "Normal function": 2
+  },
+  "function1": "Normal function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two normal function alleles"
+ },
+ {
+  "phenotypeid": 8603855,
+  "lookupkey": {
+   "Decreased function": 1,
+   "Increased function": 1
+  },
+  "function1": "Increased function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8603855,
+  "lookupkey": {
+   "Normal function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Normal function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one decreased function allele"
+ },
+ {
+  "phenotypeid": 8603870,
+  "lookupkey": {
+   "Decreased function": 2
+  },
+  "function1": "Decreased function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two decreased function alleles"
+ },
+ {
+  "phenotypeid": 8603893,
+  "lookupkey": {
+   "Unknown function": 1,
+   "Increased function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Increased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one increased function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8603893,
+  "lookupkey": {
+   "Normal function": 1,
+   "Unknown function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Normal function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one normal function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8603893,
+  "lookupkey": {
+   "Unknown function": 1,
+   "Decreased function": 1
+  },
+  "function1": "Unknown function",
+  "function2": "Decreased function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying one decreased function allele and one unknown function allele"
+ },
+ {
+  "phenotypeid": 8603893,
+  "lookupkey": {
+   "Unknown function": 2
+  },
+  "function1": "Unknown function",
+  "function2": "Unknown function",
+  "activityvalue1": "n/a",
+  "activityvalue2": "n/a",
+  "totalactivityscore": "n/a",
+  "description": "An individual carrying two unknown function alleles"
+ },
+ {
+  "phenotypeid": 8603907,
+  "lookupkey": {
+   "*31:01 negative": 1
+  },
+  "function1": null,
+  "function2": null,
+  "activityvalue1": null,
+  "activityvalue2": null,
+  "totalactivityscore": null,
+  "description": null
+ },
+ {
+  "phenotypeid": 8603910,
+  "lookupkey": {
+   "*31:01 positive": 1
+  },
+  "function1": null,
+  "function2": null,
+  "activityvalue1": null,
+  "activityvalue2": null,
+  "totalactivityscore": null,
+  "description": null
+ },
+ {
+  "phenotypeid": 8603913,
+  "lookupkey": {
+   "*15:02 negative": 1
+  },
+  "function1": null,
+  "function2": null,
+  "activityvalue1": null,
+  "activityvalue2": null,
+  "totalactivityscore": null,
+  "description": null
+ },
+ {
+  "phenotypeid": 8603916,
+  "lookupkey": {
+   "*15:02 positive": 1
+  },
+  "function1": null,
+  "function2": null,
+  "activityvalue1": null,
+  "activityvalue2": null,
+  "totalactivityscore": null,
+  "description": null
+ },
+ {
+  "phenotypeid": 8603919,
+  "lookupkey": {
+   "*57:01 negative": 1
+  },
+  "function1": null,
+  "function2": null,
+  "activityvalue1": null,
+  "activityvalue2": null,
+  "totalactivityscore": null,
+  "description": null
+ },
+ {
+  "phenotypeid": 8603922,
+  "lookupkey": {
+   "*57:01 positive": 1
+  },
+  "function1": null,
+  "function2": null,
+  "activityvalue1": null,
+  "activityvalue2": null,
+  "totalactivityscore": null,
+  "description": null
+ },
+ {
+  "phenotypeid": 8603925,
+  "lookupkey": {
+   "*58:01 negative": 1
+  },
+  "function1": null,
+  "function2": null,
+  "activityvalue1": null,
+  "activityvalue2": null,
+  "totalactivityscore": null,
+  "description": null
+ },
+ {
+  "phenotypeid": 8603928,
+  "lookupkey": {
+   "*58:01 positive": 1
+  },
+  "function1": null,
+  "function2": null,
+  "activityvalue1": null,
+  "activityvalue2": null,
+  "totalactivityscore": null,
+  "description": null
+ }
+]

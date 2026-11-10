@@ -1,0 +1,97 @@
+genesymbol	drugname	drugid	cpiclevel	clinpgxlevel	pgxtesting	guidelinename	guidelineurl	usedforrecommendation	provisional
+ABCG2	rosuvastatin	RxNorm:301542	A	1A		SLCO1B1, ABCG2, CYP2C9, and Statins	https://www.clinpgx.org/guideline/PA166264281	Yes	False
+CACNA1S	desflurane	RxNorm:27340	A	1A	Actionable PGx	RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+CACNA1S	enflurane	RxNorm:3920	A	1A		RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+CACNA1S	halothane	RxNorm:5095	A	1A		RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+CACNA1S	isoflurane	RxNorm:6026	A	1A	Actionable PGx	RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+CACNA1S	methoxyflurane	RxNorm:6857	A	1A		RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+CACNA1S	sevoflurane	RxNorm:36453	A	1A	Actionable PGx	RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+CACNA1S	succinylcholine	RxNorm:10154	A	1A	Actionable PGx	RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+CFTR	ivacaftor	RxNorm:1243041	A	1A	Testing Required	CFTR and Ivacaftor	https://www.clinpgx.org/guideline/PA166251449	Yes	False
+CYP2B6	efavirenz	RxNorm:195085	A	1A	Informative PGx	CYP2B6 and efavirenz	https://www.clinpgx.org/guideline/PA166251463	Yes	False
+CYP2C19	amitriptyline	RxNorm:704	A	1A		CYP2D6, CYP2C19 and Tricyclic Antidepressants	https://www.clinpgx.org/guideline/PA166251445	Yes	False
+CYP2C19	citalopram	RxNorm:2556	A	1A	Actionable PGx	CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants	https://www.clinpgx.org/guideline/PA166251452	Yes	False
+CYP2C19	clopidogrel	RxNorm:32968	A	1A	Actionable PGx	CYP2C19 and Clopidogrel	https://www.clinpgx.org/guideline/PA166251443	Yes	False
+CYP2C19	escitalopram	RxNorm:321988	A	1A	Informative PGx	CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants	https://www.clinpgx.org/guideline/PA166251452	Yes	False
+CYP2C19	lansoprazole	RxNorm:17128	A	1A	Informative PGx	CYP2C19 and Proton Pump Inhibitors	https://www.clinpgx.org/guideline/PA166251441	Yes	False
+CYP2C19	omeprazole	RxNorm:7646	A	1A	Informative PGx	CYP2C19 and Proton Pump Inhibitors	https://www.clinpgx.org/guideline/PA166251441	Yes	False
+CYP2C19	pantoprazole	RxNorm:40790	A	1A	Actionable PGx	CYP2C19 and Proton Pump Inhibitors	https://www.clinpgx.org/guideline/PA166251441	Yes	False
+CYP2C19	sertraline	RxNorm:36437	A	1A		CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants	https://www.clinpgx.org/guideline/PA166251452	Yes	False
+CYP2C19	voriconazole	RxNorm:121243	A	1A	Informative PGx	CYP2C19 and Voriconazole	https://www.clinpgx.org/guideline/PA166251456	Yes	False
+CYP2C9	celecoxib	RxNorm:140587	A	1A	Actionable PGx	CYP2C9 and NSAIDs	https://www.clinpgx.org/guideline/PA166251464	Yes	False
+CYP2C9	flurbiprofen	RxNorm:4502	A	1A	Actionable PGx	CYP2C9 and NSAIDs	https://www.clinpgx.org/guideline/PA166251464	Yes	False
+CYP2C9	fluvastatin	RxNorm:41127	A	1A		SLCO1B1, ABCG2, CYP2C9, and Statins	https://www.clinpgx.org/guideline/PA166264281	Yes	False
+CYP2C9	fosphenytoin	RxNorm:72236	A		Actionable PGx	CYP2C9, HLA-B and Phenytoin	https://www.clinpgx.org/guideline/PA166251461	Yes	False
+CYP2C9	ibuprofen	RxNorm:5640	A	1A		CYP2C9 and NSAIDs	https://www.clinpgx.org/guideline/PA166251464	Yes	False
+CYP2C9	lornoxicam	RxNorm:20890	A	1A		CYP2C9 and NSAIDs	https://www.clinpgx.org/guideline/PA166251464	Yes	False
+CYP2C9	meloxicam	RxNorm:41493	A	1A	Informative PGx	CYP2C9 and NSAIDs	https://www.clinpgx.org/guideline/PA166251464	Yes	False
+CYP2C9	phenytoin	RxNorm:8183	A	1A	Actionable PGx	CYP2C9, HLA-B and Phenytoin	https://www.clinpgx.org/guideline/PA166251461	Yes	False
+CYP2C9	piroxicam	RxNorm:8356	A	1A	Actionable PGx	CYP2C9 and NSAIDs	https://www.clinpgx.org/guideline/PA166251464	Yes	False
+CYP2C9	siponimod	RxNorm:2121085	A	1A	Testing Required			n/a	True
+CYP2C9	tenoxicam	RxNorm:37790	A	1A		CYP2C9 and NSAIDs	https://www.clinpgx.org/guideline/PA166251464	Yes	False
+CYP2C9	warfarin	RxNorm:11289	A	1A	Actionable PGx	CYP2C9, VKORC1, CYP4F2 and Warfarin	https://www.clinpgx.org/guideline/PA166251465	Yes	False
+CYP2D6	amitriptyline	RxNorm:704	A	1A	Informative PGx	CYP2D6, CYP2C19 and Tricyclic Antidepressants	https://www.clinpgx.org/guideline/PA166251445	Yes	False
+CYP2D6	atomoxetine	RxNorm:38400	A	1A	Actionable PGx	CYP2D6 and Atomoxetine	https://www.clinpgx.org/guideline/PA166251459	Yes	False
+CYP2D6	codeine	RxNorm:2670	A	1A	Actionable PGx	CYP2D6, OPRM1, COMT, and Opioids	https://www.clinpgx.org/guideline/PA166251454	Yes	False
+CYP2D6	nortriptyline	RxNorm:7531	A	1A	Informative PGx	CYP2D6, CYP2C19 and Tricyclic Antidepressants	https://www.clinpgx.org/guideline/PA166251445	Yes	False
+CYP2D6	ondansetron	RxNorm:26225	A	1A	No Clinical PGx	CYP2D6 and Ondansetron and Tropisetron	https://www.clinpgx.org/guideline/PA166251457	Yes	False
+CYP2D6	paroxetine	RxNorm:32937	A	1A		CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants	https://www.clinpgx.org/guideline/PA166251452	Yes	False
+CYP2D6	pitolisant	RxNorm:2197878	A		Actionable PGx			n/a	True
+CYP2D6	tamoxifen	RxNorm:10324	A	1A	Informative PGx	CYP2D6 and Tamoxifen	https://www.clinpgx.org/guideline/PA166251458	Yes	False
+CYP2D6	tramadol	RxNorm:10689	A	1A	Actionable PGx	CYP2D6, OPRM1, COMT, and Opioids	https://www.clinpgx.org/guideline/PA166251454	Yes	False
+CYP2D6	tropisetron	RxNorm:27392	A	1A		CYP2D6 and Ondansetron and Tropisetron	https://www.clinpgx.org/guideline/PA166251457	Yes	False
+CYP2D6	vortioxetine	RxNorm:1455099	A	1A	Actionable PGx	CYP2D6, CYP2C19, CYP2B6, SLC6A4, HTR2A and Serotonin Reuptake Inhibitor Antidepressants	https://www.clinpgx.org/guideline/PA166251452	Yes	False
+CYP3A5	tacrolimus	RxNorm:42316	A	1A		CYP3A5 and Tacrolimus	https://www.clinpgx.org/guideline/PA166251451	Yes	False
+CYP4F2	warfarin	RxNorm:11289	A	1A		CYP2C9, VKORC1, CYP4F2 and Warfarin	https://www.clinpgx.org/guideline/PA166251465	Yes	False
+DPYD	capecitabine	RxNorm:194000	A	1A	Testing Required	DPYD and Fluoropyrimidines	https://www.clinpgx.org/guideline/PA166251462	Yes	False
+DPYD	fluorouracil	RxNorm:4492	A	1A	Testing Required	DPYD and Fluoropyrimidines	https://www.clinpgx.org/guideline/PA166251462	Yes	False
+G6PD	dapsone	RxNorm:3108	A	4	Actionable PGx	G6PD	https://www.clinpgx.org/guideline/PA166251450	Yes	False
+G6PD	methylene blue	RxNorm:6878	A	3	Actionable PGx	G6PD	https://www.clinpgx.org/guideline/PA166251450	Yes	False
+G6PD	nitrofurantoin	RxNorm:7454	A	3	Actionable PGx	G6PD	https://www.clinpgx.org/guideline/PA166251450	Yes	False
+G6PD	pegloticase	RxNorm:1011650	A	3	Testing Required	G6PD	https://www.clinpgx.org/guideline/PA166251450	Yes	False
+G6PD	primaquine	RxNorm:8687	A	3	Testing Required	G6PD	https://www.clinpgx.org/guideline/PA166251450	Yes	False
+G6PD	rasburicase	RxNorm:283821	A	1A	Testing Required	G6PD	https://www.clinpgx.org/guideline/PA166251450	Yes	False
+G6PD	tafenoquine	RxNorm:2054023	A		Testing Required	G6PD	https://www.clinpgx.org/guideline/PA166251450	Yes	False
+G6PD	toluidine blue	RxNorm:10638	A			G6PD	https://www.clinpgx.org/guideline/PA166251450	Yes	False
+HLA-A	carbamazepine	RxNorm:2002	A	1A	Actionable PGx	HLA-A, HLA-B and Carbamazepine and Oxcarbazepine	https://www.clinpgx.org/guideline/PA166251448	Yes	False
+HLA-B	abacavir	RxNorm:190521	A	1A	Testing Required	HLA-B and Abacavir	https://www.clinpgx.org/guideline/PA166251444	Yes	False
+HLA-B	allopurinol	RxNorm:519	A	1A	Testing Recommended	HLA-B and Allopurinol	https://www.clinpgx.org/guideline/PA166251446	Yes	False
+HLA-B	carbamazepine	RxNorm:2002	A	1A	Testing Required	HLA-A, HLA-B and Carbamazepine and Oxcarbazepine	https://www.clinpgx.org/guideline/PA166251448	Yes	False
+HLA-B	fosphenytoin	RxNorm:72236	A		Actionable PGx	CYP2C9, HLA-B and Phenytoin	https://www.clinpgx.org/guideline/PA166251461	Yes	False
+HLA-B	oxcarbazepine	RxNorm:32624	A	1A	Testing Recommended	HLA-A, HLA-B and Carbamazepine and Oxcarbazepine	https://www.clinpgx.org/guideline/PA166251448	Yes	False
+HLA-B	phenytoin	RxNorm:8183	A	1A	Actionable PGx	CYP2C9, HLA-B and Phenytoin	https://www.clinpgx.org/guideline/PA166251461	Yes	False
+MT-RNR1	amikacin	RxNorm:641	A	1A	Actionable PGx	MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+MT-RNR1	dibekacin	RxNorm:3328	A			MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+MT-RNR1	gentamicin	ATC:D06AX07	A	1A	Actionable PGx	MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+MT-RNR1	kanamycin	RxNorm:6099	A	1A		MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+MT-RNR1	neomycin	RxNorm:7299	A	1A	Actionable PGx	MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+MT-RNR1	netilmicin	RxNorm:7337	A			MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+MT-RNR1	paromomycin	RxNorm:7934	A			MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+MT-RNR1	plazomicin	RxNorm:2049549	A		Actionable PGx	MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+MT-RNR1	ribostamycin	RxNorm:NA	A			MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+MT-RNR1	streptomycin	RxNorm:10109	A	1A	Actionable PGx	MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+MT-RNR1	tobramycin	RxNorm:10627	A	1A	Actionable PGx	MT-RNR1 and Aminoglycosides	https://www.clinpgx.org/guideline/PA166251466	Yes	False
+NAT2	hydralazine	RxNorm:5470	A	1A	Actionable PGx	NAT2 and Hydralazine	https://www.clinpgx.org/guideline/PA166416361	Yes	False
+NUDT15	azathioprine	RxNorm:1256	A	1A	Testing Recommended	TPMT, NUDT15 and Thiopurines	https://www.clinpgx.org/guideline/PA166251442	Yes	False
+NUDT15	mercaptopurine	RxNorm:103	A	1A	Testing Recommended	TPMT, NUDT15 and Thiopurines	https://www.clinpgx.org/guideline/PA166251442	Yes	False
+NUDT15	thioguanine	RxNorm:10485	A	3	Testing Recommended	TPMT, NUDT15 and Thiopurines	https://www.clinpgx.org/guideline/PA166251442	Yes	False
+RYR1	desflurane	RxNorm:27340	A	1A	Actionable PGx	RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+RYR1	enflurane	RxNorm:3920	A	1A		RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+RYR1	halothane	RxNorm:5095	A	1A		RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+RYR1	isoflurane	RxNorm:6026	A	1A	Actionable PGx	RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+RYR1	methoxyflurane	RxNorm:6857	A	1A		RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+RYR1	sevoflurane	RxNorm:36453	A	1A	Actionable PGx	RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+RYR1	succinylcholine	RxNorm:10154	A	1A	Actionable PGx	RYR1, CACNA1S and Volatile anesthetic agents and Succinylcholine	https://www.clinpgx.org/guideline/PA166251460	Yes	False
+SLCO1B1	atorvastatin	RxNorm:83367	A	1A		SLCO1B1, ABCG2, CYP2C9, and Statins	https://www.clinpgx.org/guideline/PA166264281	Yes	False
+SLCO1B1	fluvastatin	RxNorm:41127	A	1A		SLCO1B1, ABCG2, CYP2C9, and Statins	https://www.clinpgx.org/guideline/PA166264281	Yes	False
+SLCO1B1	lovastatin	RxNorm:6472	A	1A		SLCO1B1, ABCG2, CYP2C9, and Statins	https://www.clinpgx.org/guideline/PA166264281	Yes	False
+SLCO1B1	pitavastatin	RxNorm:861634	A	1A		SLCO1B1, ABCG2, CYP2C9, and Statins	https://www.clinpgx.org/guideline/PA166264281	Yes	False
+SLCO1B1	pravastatin	RxNorm:42463	A	1A		SLCO1B1, ABCG2, CYP2C9, and Statins	https://www.clinpgx.org/guideline/PA166264281	Yes	False
+SLCO1B1	rosuvastatin	RxNorm:301542	A	1A	Informative PGx	SLCO1B1, ABCG2, CYP2C9, and Statins	https://www.clinpgx.org/guideline/PA166264281	Yes	False
+SLCO1B1	simvastatin	RxNorm:36567	A	1A		SLCO1B1, ABCG2, CYP2C9, and Statins	https://www.clinpgx.org/guideline/PA166264281	Yes	False
+TPMT	azathioprine	RxNorm:1256	A	1A	Testing Recommended	TPMT, NUDT15 and Thiopurines	https://www.clinpgx.org/guideline/PA166251442	Yes	False
+TPMT	mercaptopurine	RxNorm:103	A	1A	Testing Recommended	TPMT, NUDT15 and Thiopurines	https://www.clinpgx.org/guideline/PA166251442	Yes	False
+TPMT	thioguanine	RxNorm:10485	A	1A	Testing Recommended	TPMT, NUDT15 and Thiopurines	https://www.clinpgx.org/guideline/PA166251442	Yes	False
+UGT1A1	atazanavir	RxNorm:343047	A	1A		UGT1A1 and Atazanavir	https://www.clinpgx.org/guideline/PA166251453	Yes	False
+UGT1A1	irinotecan	RxNorm:51499	A	1A	Testing Recommended			n/a	True
+VKORC1	warfarin	RxNorm:11289	A	1A	Actionable PGx	CYP2C9, VKORC1, CYP4F2 and Warfarin	https://www.clinpgx.org/guideline/PA166251465	Yes	False
