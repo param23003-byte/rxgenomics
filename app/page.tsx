@@ -1,76 +1,32 @@
-"use client"
+import Link from "next/link";
+import { ArrowRight, Dna, ShieldCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-import { useState } from "react"
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/dashboard/app-sidebar"
-import { MetricCards } from "@/components/dashboard/metric-cards"
-import { DrugSearch } from "@/components/dashboard/drug-search"
-import { InteractionAlert } from "@/components/dashboard/interaction-alert"
-import { Separator } from "@/components/ui/separator"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-
-interface Drug {
-  name: string
-  category: string
-  genes: string[]
-}
-
-export default function DashboardPage() {
-  const [selectedDrug, setSelectedDrug] = useState<string | null>(null)
-
-  const handleDrugSelect = (drug: Drug) => {
-    setSelectedDrug(drug.name)
-  }
-
+export default function HomePage() {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b border-border bg-card px-4">
-          <SidebarTrigger className="-ml-1" />
-          <Separator orientation="vertical" className="mr-2 h-4" />
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="/">Dashboard</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="hidden md:block" />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Patient Search</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </header>
-
-        <main className="flex-1 overflow-auto bg-background">
-          <div className="container max-w-7xl py-6 px-4 md:px-6 lg:px-8">
-            <div className="mb-8">
-              <h1 className="text-2xl font-bold tracking-tight text-foreground text-balance">
-                Pharmacogenomics Dashboard
-              </h1>
-              <p className="text-muted-foreground mt-1">
-                Clinical decision support for drug-gene interactions
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <MetricCards />
-
-              <div className="grid gap-6 lg:grid-cols-2">
-                <DrugSearch onDrugSelect={handleDrugSelect} />
-                <InteractionAlert selectedDrug={selectedDrug} />
-              </div>
-            </div>
-          </div>
-        </main>
-      </SidebarInset>
-    </SidebarProvider>
-  )
+    <main className="min-h-screen bg-background px-6 py-16 text-foreground md:px-10 md:py-24">
+      <div className="mx-auto flex min-h-[70vh] max-w-3xl flex-col justify-center">
+        <div className="mb-8 flex size-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+          <Dna className="size-6" aria-hidden="true" />
+        </div>
+        <p className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-primary">RxGenomics</p>
+        <h1 className="max-w-2xl text-4xl font-semibold tracking-tight md:text-6xl">
+          Pharmacogenomic decision support, grounded in CPIC guidance.
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
+          RxGenomics translates a reported genotype into a clear drug-gene recommendation using a verified CPIC knowledge base. It is designed to help researchers and clinicians review pharmacogenomic evidence without patient data.
+        </p>
+        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <Button asChild size="lg">
+            <Link href="/interactions">
+              Open the evaluator <ArrowRight data-icon="inline-end" />
+            </Link>
+          </Button>
+          <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+            <ShieldCheck className="size-4" aria-hidden="true" /> Research prototype. Not for clinical use.
+          </span>
+        </div>
+      </div>
+    </main>
+  );
 }

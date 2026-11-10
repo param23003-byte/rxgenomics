@@ -14,6 +14,12 @@ export function drugCatalog(): DrugOption[] {
 }
 
 /** Example inputs shown as hints next to each gene field. */
+export function alleleCatalog(gene: string, options?: { single?: boolean }): string[] {
+  if (gene === "HLA-A" || gene === "HLA-B") return ["positive", "negative"];
+  const alleles = Object.keys(kb.genes[gene]?.alleles ?? {}).sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+  return options?.single ? alleles : alleles;
+}
+
 export const GENE_HINTS: Record<string, string> = {
   "HLA-A": "*31:01 positive",
   "HLA-B": "*57:01 positive",
